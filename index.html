@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Vedprakash Meena | Software Engineer & AI Systems Specialist</title>
+  <meta name="title" content="Vedprakash Meena | Software Engineer & AI Systems Specialist">
+  <meta name="description" content="Portfolio of Vedprakash Meena - Software Engineer, AI Model Trainer & Python Backend Architect. B.Tech IT at IIIT Sonepat with expertise in FastAPI, Docker, RLHF, and DSA.">
+  <meta name="keywords" content="Vedprakash Meena, Software Engineer, Python Developer, Docker, AI Evaluation, Outlier AI, IIIT Sonepat, Backend Developer, FastAPI, Machine Learning">
+  <meta name="author" content="Vedprakash Meena">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vedprakash Meena | Software Engineer & AI Systems Specialist">
+  <meta property="og:description" content="Portfolio of Vedprakash Meena — B.Tech IT at IIIT Sonepat, AI Evaluation Specialist at Outlier AI, and Python Backend Architect.">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    /* CSS Design System & Variables */
+    :root {
+      --bg-base: #090d16;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(56, 189, 248, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent-primary: #38bdf8;
+      --accent-secondary: #818cf8;
+      --accent-emerald: #10b981;
+      --accent-purple: #a855f7;
+      --accent-amber: #f59e0b;
+      --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --glow-shadow: 0 0 35px rgba(56, 189, 248, 0.18);
+      --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --nav-height: 70px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: #ffffff;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-glow: rgba(2, 132, 199, 0.4);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Selection & Scrollbar */
+    ::selection {
+      background: var(--accent-primary);
+      color: #000;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-primary);
+    }
+
+    /* Ambient Background Glow */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ambient-blob-1 {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+    .ambient-blob-2 {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
+      filter: blur(90px);
+    }
+    .ambient-blob-3 {
+      position: absolute;
+      bottom: -10%;
+      left: 20%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Typography Utilities */
+    .text-gradient {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    [data-theme="light"] .navbar {
+      background: rgba(248, 250, 252, 0.88);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #090d16;
+      font-weight: 900;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .theme-toggle-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .theme-toggle-btn:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: rotate(15deg);
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: #090d16;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
+    }
+    .btn-secondary {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+    .btn-outline-glow {
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid var(--border-glow);
+      color: var(--accent-primary);
+    }
+    .btn-outline-glow:hover {
+      background: rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+      color: var(--text-main);
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) + 40px);
+      padding-bottom: 60px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 30px;
+      color: var(--accent-emerald);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .hero-title {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+    .hero-typed-wrapper {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cursor-blink {
+      display: inline-block;
+      width: 3px;
+      height: 1.2em;
+      background: var(--accent-primary);
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+    .hero-cta-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .social-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .social-btn:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+    }
+
+    /* Terminal Widget */
+    .terminal-card {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), var(--glow-shadow);
+      overflow: hidden;
+    }
+    .terminal-header {
+      background: #080c16;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .terminal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .terminal-tabs {
+      display: flex;
+      background: #0a0f1c;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .term-tab {
+      padding: 8px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      cursor: pointer;
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      transition: var(--transition);
+    }
+    .term-tab.active {
+      background: #0d1322;
+      color: var(--accent-primary);
+      border-bottom: 2px solid var(--accent-primary);
+    }
+    .terminal-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+      min-height: 290px;
+    }
+    .code-comment { color: #64748b; }
+    .code-keyword { color: #c084fc; font-weight: 600; }
+    .code-fn { color: #38bdf8; }
+    .code-str { color: #34d399; }
+    .code-var { color: #f472b6; }
+    .code-num { color: #fbbf24; }
+
+    /* Stats Quick Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: -30px;
+      margin-bottom: 60px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+    }
+    .stat-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Skills Section */
+    .skills-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 30px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-primary);
+      color: #090d16;
+      border-color: var(--accent-primary);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px;
+      transition: var(--transition);
+    }
+    .skill-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+    }
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .skill-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      font-size: 1.3rem;
+    }
+    .skill-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-pill {
+      font-size: 0.76rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .project-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.15);
+    }
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .project-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(129, 140, 248, 0.15);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: var(--accent-secondary);
+    }
+    .project-links {
+      display: flex;
+      gap: 10px;
+    }
+    .proj-link-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .proj-link-btn:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: scale(1.1);
+    }
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .project-highlights {
+      list-style: none;
+      margin-bottom: 22px;
+    }
+    .project-highlights li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .project-highlights li i {
+      color: var(--accent-primary);
+      font-size: 0.75rem;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 40px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 11px;
+      top: 6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-base);
+      border: 3px solid var(--accent-primary);
+      box-shadow: 0 0 10px var(--accent-primary);
+    }
+    .timeline-content {
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 26px;
+      transition: var(--transition);
+    }
+    .timeline-content:hover {
+      border-color: var(--border-glow);
+      transform: translateX(4px);
+    }
+    .timeline-role {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .timeline-company {
+      font-size: 0.95rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .timeline-date {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 14px;
+    }
+    .timeline-list {
+      list-style-type: disc;
+      margin-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .timeline-list li {
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+
+    /* Resume Hub Section */
+    .resume-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .resume-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .resume-box:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      background: var(--bg-card-hover);
+    }
+    .resume-box-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--accent-primary);
+    }
+    .resume-box-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .resume-box-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .resume-btn-row {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      border-radius: 8px;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 45px;
+      box-shadow: var(--card-shadow);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .contact-info-val {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .contact-info-val:hover {
+      color: var(--accent-primary);
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      border: 1px solid var(--accent-primary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.6rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      section {
+        padding: 70px 0;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="ambient-bg">
+    <div class="ambient-blob-1"></div>
+    <div class="ambient-blob-2"></div>
+    <div class="ambient-blob-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-box">V</div>
+        <span>Vedprakash<span class="text-gradient">.me</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#resumes" class="nav-link">Resume Hub</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Let's Talk
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Intro & Bio -->
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            Available for Frontier AI &amp; Backend Roles
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Vedprakash Meena</span>
+          </h1>
+
+          <div class="hero-typed-wrapper">
+            <span>I build &amp; evaluate</span>
+            <span class="text-gradient font-mono" id="typedText">Autonomous AI Agents</span>
+            <span class="cursor-blink"></span>
+          </div>
+
+          <p class="hero-bio">
+            Information Technology undergraduate at <strong>IIIT Sonepat</strong> with proven expertise in <strong>AI model alignment, RLHF evaluation, and Python backend microservices</strong> (FastAPI, Docker). Passionate about high-fidelity software engineering and benchmarking frontier LLMs.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-layer-group"></i> Explore Projects
+            </a>
+            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.pdf" class="btn btn-secondary" target="_blank">
+              <i class="fa-solid fa-file-pdf"></i> Download Resume
+            </a>
+            <a href="index.html" class="btn btn-outline-glow">
+              <i class="fa-solid fa-sliders"></i> Resume Dashboard
+            </a>
+          </div>
+
+          <div class="social-bar">
+            <a href="https://github.com/vedumeena01" target="_blank" class="social-btn" title="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vedprakash-meena-58a427309" target="_blank" class="social-btn" title="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:vedumeena01@gmail.com" class="social-btn" title="Send Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <button onclick="copyToClipboard('vedumeena01@gmail.com', 'Email copied to clipboard!')" class="social-btn" title="Copy Email">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Code Terminal -->
+        <div class="hero-terminal">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">vedprakash@devflow-core:~</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Python 3.11</div>
+            </div>
+
+            <div class="terminal-tabs">
+              <div class="term-tab active" onclick="switchTermTab(0)">fastapi_service.py</div>
+              <div class="term-tab" onclick="switchTermTab(1)">agent_rubric.py</div>
+              <div class="term-tab" onclick="switchTermTab(2)">docker-compose.yml</div>
+            </div>
+
+            <div class="terminal-body" id="termBody">
+              <!-- Tab 0: FastAPI Service -->
+              <div id="tabContent0">
+                <span class="code-comment"># Containerized SaaS Connector &amp; Microservice</span><br>
+                <span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI, Depends, HTTPException<br>
+                <span class="code-keyword">from</span> pydantic <span class="code-keyword">import</span> BaseModel, Field<br>
+                <span class="code-keyword">import</span> pytest<br><br>
+                app = <span class="code-fn">FastAPI</span>(title=<span class="code-str">"SaaS Connector Emulator"</span>)<br><br>
+                <span class="code-keyword">@app.post</span>(<span class="code-str">"/api/v1/webhook/slack"</span>)<br>
+                <span class="code-keyword">async def</span> <span class="code-fn">handle_slack_event</span>(event: EventPayload):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;verified = <span class="code-fn">verify_hmac_signature</span>(event)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if not</span> verified:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">raise</span> <span class="code-fn">HTTPException</span>(status_code=<span class="code-num">401</span>)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> {<span class="code-str">"status"</span>: <span class="code-str">"dispatched"</span>, <span class="code-str">"latency_ms"</span>: <span class="code-num">4.2</span>}<br><br>
+                <span class="code-comment"># Result: 100% contract compliance &amp; determinism</span>
+              </div>
+
+              <!-- Tab 1: Agent Rubric -->
+              <div id="tabContent1" style="display:none;">
+                <span class="code-comment"># Frontier LLM Multi-Tier Rubric Assessment</span><br>
+                <span class="code-keyword">class</span> <span class="code-fn">TaskEvaluationRubric</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-var">acceptance_rate</span> = <span class="code-num">0.984</span>  <span class="code-comment"># 98%+ on Outlier</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-var">tiers</span> = [<span class="code-str">"Correct"</span>, <span class="code-str">"Partially_Correct"</span>, <span class="code-str">"Deficient"</span>]<br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">def</span> <span class="code-fn">verify_agent_trajectory</span>(self, trace):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tests_passed = trace.run_hidden_pytest()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zero_hallucination = trace.check_ast_safety()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> tests_passed <span class="code-keyword">and</span> zero_hallucination
+              </div>
+
+              <!-- Tab 2: Docker Compose -->
+              <div id="tabContent2" style="display:none;">
+                <span class="code-comment"># Isolated Sandbox Environment</span><br>
+                <span class="code-keyword">version</span>: <span class="code-str">'3.8'</span><br>
+                <span class="code-keyword">services</span>:<br>
+                &nbsp;&nbsp;<span class="code-var">agent-sandbox</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">build</span>: .<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">ports</span>: [<span class="code-str">"8000:8000"</span>]<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">environment</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="code-var">ENV</span>=<span class="code-str">"evaluation_production"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">healthcheck</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">test</span>: [<span class="code-str">"CMD"</span>, <span class="code-str">"curl"</span>, <span class="code-str">"-f"</span>, <span class="code-str">"http://localhost:8000/healthz"</span>]
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Impact Stats Grid -->
+  <section style="padding: 0;" id="about">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">DSA Problems Solved (LeetCode &amp; GFG)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">98%+</div>
+          <div class="stat-label">Task Acceptance Rate at Outlier AI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Production &amp; Research AI Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">IIIT</div>
+          <div class="stat-label">B.Tech IT (2023–2027) Sonepat</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Skills Matrix -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-tag"><i class="fa-solid fa-code"></i> Capabilities</div>
+      <h2 class="section-title">Technical Expertise &amp; Tooling</h2>
+      <p class="section-subtitle">A curated view of languages, frameworks, AI evaluation paradigms, and infrastructure tools I leverage daily.</p>
+
+      <div class="skills-filter">
+        <button class="filter-btn active" onclick="filterSkills('all')">All Skills</button>
+        <button class="filter-btn" onclick="filterSkills('backend')">Backend &amp; Cloud</button>
+        <button class="filter-btn" onclick="filterSkills('ai')">AI &amp; Model Alignment</button>
+        <button class="filter-btn" onclick="filterSkills('languages')">Languages &amp; Core</button>
+      </div>
+
+      <div class="skills-grid" id="skillsContainer">
+        
+        <!-- Python -->
+        <div class="skill-card" data-cat="backend languages">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-brands fa-python"></i></div>
+            <div>
+              <div class="skill-name">Python 3.x</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Primary Language</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Flask</span>
+            <span class="tech-pill">Asyncio</span>
+            <span class="tech-pill">PyTest</span>
+            <span class="tech-pill">Pydantic</span>
+          </div>
+        </div>
+
+        <!-- Docker & DevOps -->
+        <div class="skill-card" data-cat="backend">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-brands fa-docker"></i></div>
+            <div>
+              <div class="skill-name">Docker &amp; DevOps</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Containerization</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">Docker Compose</span>
+            <span class="tech-pill">Sandboxing</span>
+            <span class="tech-pill">CI/CD Pipelines</span>
+            <span class="tech-pill">Git / GitHub</span>
+          </div>
+        </div>
+
+        <!-- AI Alignment & RLHF -->
+        <div class="skill-card" data-cat="ai">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <div class="skill-name">AI Alignment &amp; RLHF</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Model Benchmarking</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">Adversarial QA</span>
+            <span class="tech-pill">Rubric Design</span>
+            <span class="tech-pill">Multi-Turn CoT</span>
+            <span class="tech-pill">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <!-- C / C++ -->
+        <div class="skill-card" data-cat="languages">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-solid fa-c"></i></div>
+            <div>
+              <div class="skill-name">C / C++</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Systems &amp; DSA</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">STL</span>
+            <span class="tech-pill">OOPs</span>
+            <span class="tech-pill">Memory Mgmt</span>
+            <span class="tech-pill">Graph Algorithms</span>
+          </div>
+        </div>
+
+        <!-- AI Coding Agents -->
+        <div class="skill-card" data-cat="ai">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-solid fa-robot"></i></div>
+            <div>
+              <div class="skill-name">AI Coding Assistants</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Agentic Workflows</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">Claude Code</span>
+            <span class="tech-pill">Cursor</span>
+            <span class="tech-pill">GitHub Copilot</span>
+            <span class="tech-pill">Function Calling</span>
+          </div>
+        </div>
+
+        <!-- Full-Stack & DB -->
+        <div class="skill-card" data-cat="backend">
+          <div class="skill-header">
+            <div class="skill-icon-box"><i class="fa-solid fa-database"></i></div>
+            <div>
+              <div class="skill-name">Databases &amp; Web</div>
+              <div class="text-dim font-mono" style="font-size:0.75rem;">Full Stack</div>
+            </div>
+          </div>
+          <div class="skill-tags">
+            <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">MongoDB Atlas</span>
+            <span class="tech-pill">Redis</span>
+            <span class="tech-pill">React.js</span>
+            <span class="tech-pill">REST APIs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Projects Showcase -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-tag"><i class="fa-solid fa-rocket"></i> Portfolio</div>
+      <h2 class="section-title">Featured Projects &amp; Systems</h2>
+      <p class="section-subtitle">Production microservices, multimodal deep learning models, and autonomous robotics architectures.</p>
+
+      <div class="projects-grid">
+        
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">Deep Learning • Multimodal</span>
+              <div class="project-links">
+                <a href="https://github.com/vedumeena01/video-to-text-captioning" target="_blank" class="proj-link-btn" title="View Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">AI Video-to-Text Multimodal Captioning</h3>
+            <p class="project-desc">
+              End-to-end spatiotemporal feature extraction pipeline leveraging dual neural backbones to generate coherent, context-aware video captions.
+            </p>
+            <ul class="project-highlights">
+              <li><i class="fa-solid fa-check"></i> ResNet-152 (spatial) + C3D (temporal) feature fusion</li>
+              <li><i class="fa-solid fa-check"></i> Autoregressive Transformer with Contrastive Loss</li>
+              <li><i class="fa-solid fa-check"></i> Significant boost in BLEU-4 and semantic alignment</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">PyTorch</span>
+            <span class="tech-pill">Transformers</span>
+            <span class="tech-pill">CUDA</span>
+            <span class="tech-pill">ResNet-152</span>
+            <span class="tech-pill">FastAPI</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">Computer Vision • Security</span>
+              <div class="project-links">
+                <a href="https://github.com/vedumeena01/ai-face-anti-spoofing" target="_blank" class="proj-link-btn" title="View Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Real-Time AI Biometric Anti-Spoofing</h3>
+            <p class="project-desc">
+              Production-grade biometric security pipeline with deep neural anti-spoofing to reject replay attacks, photo spoofs, and 3D masks.
+            </p>
+            <ul class="project-highlights">
+              <li><i class="fa-solid fa-check"></i> 97.8% anti-spoofing accuracy on real-time live feeds</li>
+              <li><i class="fa-solid fa-check"></i> AES-256 Fernet encrypted biometric database</li>
+              <li><i class="fa-solid fa-check"></i> Sub-50ms identification with multi-threaded inference</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">OpenCV</span>
+            <span class="tech-pill">PyTorch</span>
+            <span class="tech-pill">AES-256</span>
+            <span class="tech-pill">dlib</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">Robotics • Graph Theory</span>
+              <div class="project-links">
+                <a href="https://github.com/vedumeena01/line-following-maze-solver" target="_blank" class="proj-link-btn" title="View Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Autonomous Maze-Solving Robot</h3>
+            <p class="project-desc">
+              High-speed autonomous navigation system using sensor arrays, closed-loop PID control, and dynamic graph traversal algorithms.
+            </p>
+            <ul class="project-highlights">
+              <li><i class="fa-solid fa-check"></i> Left-Hand Rule &amp; Shortest Path graph optimization</li>
+              <li><i class="fa-solid fa-check"></i> Hardware interrupts reducing response latency by 35%</li>
+              <li><i class="fa-solid fa-check"></i> Zero-overshoot PID tuning across 90° intersections</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">C / C++</span>
+            <span class="tech-pill">PID Control</span>
+            <span class="tech-pill">Graph Algorithms</span>
+            <span class="tech-pill">ESP32 / Arduino</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">Backend • Docker</span>
+              <div class="project-links">
+                <a href="https://github.com/vedumeena01" target="_blank" class="proj-link-btn" title="View Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">SaaS Connector &amp; Emulation Suite</h3>
+            <p class="project-desc">
+              Containerized microservice suite faithfully replicating Slack, Jira, Linear, and Notion RESTful endpoints for autonomous agent testing.
+            </p>
+            <ul class="project-highlights">
+              <li><i class="fa-solid fa-check"></i> Strict JSON schema validation &amp; webhook emulation</li>
+              <li><i class="fa-solid fa-check"></i> PyTest test harness ensuring 100% contract compliance</li>
+              <li><i class="fa-solid fa-check"></i> Isolated Docker Compose sandboxes for reproducible runs</li>
+            </ul>
+          </div>
+          <div class="project-tech">
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Docker Compose</span>
+            <span class="tech-pill">PyTest</span>
+            <span class="tech-pill">Pydantic</span>
+            <span class="tech-pill">Redis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Experience Timeline -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-tag"><i class="fa-solid fa-briefcase"></i> Track Record</div>
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <p class="section-subtitle">Hands-on work in frontier AI evaluation, open-source engineering, and formal Computer Science education.</p>
+
+      <div class="timeline">
+        
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-role">AI Evaluation &amp; Software Engineer</div>
+            <div class="timeline-company">Outlier AI • Remote Contractor</div>
+            <div class="timeline-date">March 2026 – Present</div>
+            <ul class="timeline-list">
+              <li>Authored and validated <strong>long-horizon software engineering tasks</strong> for frontier LLM agents, establishing 3-tier rubrics (Correct, Partially Correct, Deficient).</li>
+              <li>Built automated validation suites and <strong>PyTest unit test harnesses</strong> to benchmark code generation, instruction following, and edge-case robustness.</li>
+              <li>Maintained a <strong>98%+ task acceptance rate</strong> across enterprise AI evaluation queues with gold-standard reference code solutions in Python &amp; C++.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-role">Backend &amp; AI Systems Developer</div>
+            <div class="timeline-company">Open Source &amp; Projects</div>
+            <div class="timeline-date">Jan 2024 – Present</div>
+            <ul class="timeline-list">
+              <li>Architected containerized REST APIs and microservices using <strong>FastAPI, Flask, and Docker</strong> with Pydantic schemas and CI/CD pipelines.</li>
+              <li>Leveraged AI coding assistants (Claude Code, Cursor, Copilot) daily to build production-grade modules, test suites, and refactor codebases.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-role">B.Tech in Information Technology</div>
+            <div class="timeline-company">Indian Institute of Information Technology (IIIT), Sonepat</div>
+            <div class="timeline-date">Aug 2023 – Aug 2027 • Sonepat, Haryana</div>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems (DBMS), Operating Systems, Computer Networks, Theory of Computation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Resume Hub -->
+  <section id="resumes">
+    <div class="container">
+      <div class="section-tag"><i class="fa-solid fa-file-invoice"></i> Downloads</div>
+      <h2 class="section-title">Resume Hub &amp; Role Tailoring</h2>
+      <p class="section-subtitle">Download targeted 1-page ATS resumes formatted for specific software engineering and AI evaluation tracks.</p>
+
+      <div class="resume-hub-grid">
+        
+        <!-- Resume 1: Turing Python & Docker -->
+        <div class="resume-box">
+          <div>
+            <div class="resume-box-icon"><i class="fa-brands fa-docker"></i></div>
+            <h3 class="resume-box-title">Turing Python &amp; Docker</h3>
+            <p class="resume-box-desc">Tailored for backend microservices, FastAPI, Docker sandboxing, SaaS connector emulation, and evaluation.</p>
+          </div>
+          <div class="resume-btn-row">
+            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fa-solid fa-file-pdf"></i> PDF
+            </a>
+            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.docx" class="btn btn-secondary btn-sm" download>
+              <i class="fa-solid fa-file-word"></i> DOCX
+            </a>
+            <a href="resume_turing_python_docker.html" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
+        </div>
+
+        <!-- Resume 2: Outlier AI Specialist -->
+        <div class="resume-box">
+          <div>
+            <div class="resume-box-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3 class="resume-box-title">Outlier AI Specialist</h3>
+            <p class="resume-box-desc">Optimized for AI model evaluation, RLHF alignment, prompt engineering, and bilingual reasoning.</p>
+          </div>
+          <div class="resume-btn-row">
+            <a href="Vedprakash_Meena_Outlier_AI_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fa-solid fa-file-pdf"></i> PDF
+            </a>
+            <a href="Vedprakash_Meena_Outlier_AI_Resume.docx" class="btn btn-secondary btn-sm" download>
+              <i class="fa-solid fa-file-word"></i> DOCX
+            </a>
+            <a href="resume_outlier_ai.html" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
+        </div>
+
+        <!-- Resume 3: General Software Engineer -->
+        <div class="resume-box">
+          <div>
+            <div class="resume-box-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3 class="resume-box-title">General SDE Resume</h3>
+            <p class="resume-box-desc">Comprehensive resume covering full-stack web (MERN), computer vision, DSA, and systems programming.</p>
+          </div>
+          <div class="resume-btn-row">
+            <a href="Vedprakash_Meena_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fa-solid fa-file-pdf"></i> PDF
+            </a>
+            <a href="index.html" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-eye"></i> View
+            </a>
+          </div>
+        </div>
+
+        <!-- Resume 4: Math / Fresher -->
+        <div class="resume-box">
+          <div>
+            <div class="resume-box-icon"><i class="fa-solid fa-calculator"></i></div>
+            <h3 class="resume-box-title">Math &amp; Fresher Editions</h3>
+            <p class="resume-box-desc">Curated versions for technical tutoring, mathematics reasoning, and graduate applications.</p>
+          </div>
+          <div class="resume-btn-row">
+            <a href="Vedprakash_Meena_Math_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
+              <i class="fa-solid fa-file-pdf"></i> Math PDF
+            </a>
+            <a href="resume_fresher.html" class="btn btn-secondary btn-sm">
+              <i class="fa-solid fa-eye"></i> Fresher
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-grid">
+          
+          <!-- Contact Details -->
+          <div>
+            <div class="section-tag"><i class="fa-solid fa-envelope"></i> Get In Touch</div>
+            <h2 class="section-title">Let's Build Together</h2>
+            <p style="color: var(--text-muted); margin-bottom: 28px; line-height: 1.6;">
+              Whether you're looking for a backend engineer, AI evaluation specialist, or want to discuss frontier models, my inbox is always open.
+            </p>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-info-label">Email</div>
+                <a href="mailto:vedumeena01@gmail.com" class="contact-info-val">vedumeena01@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="contact-info-label">Phone / WhatsApp</div>
+                <a href="tel:+917023083405" class="contact-info-val">+91 7023083405</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-info-label">Location</div>
+                <div class="contact-info-val">Bharatpur / IIIT Sonepat, India</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Message Form -->
+          <div>
+            <form onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Morgan" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Your Email</label>
+                <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea id="senderMsg" class="form-textarea" placeholder="Tell me about your project or opportunity..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 13px;">
+                <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Vedprakash Meena • Designed &amp; Engineered with precision</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">
+        <a href="#hero" style="color: var(--accent-primary); text-decoration: none;">Back to Top ↑</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check" style="color: var(--accent-emerald);"></i>
+    <span id="toastMsg">Action completed successfully!</span>
+  </div>
+
+  <!-- JavaScript for Interactive Features -->
+  <script>
+    // Typing Subtitle Animation
+    const typedPhrases = [
+      "Autonomous AI Agents",
+      "FastAPI & Docker Microservices",
+      "Frontier LLM Benchmarks & Rubrics",
+      "Multimodal Deep Learning Pipelines",
+      "High-Performance Python Backends"
+    ];
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typedEl = document.getElementById("typedText");
+
+    function typeLoop() {
+      const currentPhrase = typedPhrases[phraseIdx];
+      
+      if (isDeleting) {
+        typedEl.textContent = currentPhrase.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typedEl.textContent = currentPhrase.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let typeSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIdx === currentPhrase.length) {
+        typeSpeed = 2200; // Pause at end
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        phraseIdx = (phraseIdx + 1) % typedPhrases.length;
+        typeSpeed = 400;
+      }
+
+      setTimeout(typeLoop, typeSpeed);
+    }
+    document.addEventListener("DOMContentLoaded", typeLoop);
+
+    // Theme Toggle (Dark / Light)
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      themeBtn.innerHTML = newTheme === "light" ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    });
+
+    // Terminal Tab Switcher
+    function switchTermTab(tabIndex) {
+      const tabs = document.querySelectorAll(".term-tab");
+      tabs.forEach((tab, idx) => {
+        tab.classList.toggle("active", idx === tabIndex);
+      });
+      document.getElementById("tabContent0").style.display = tabIndex === 0 ? "block" : "none";
+      document.getElementById("tabContent1").style.display = tabIndex === 1 ? "block" : "none";
+      document.getElementById("tabContent2").style.display = tabIndex === 2 ? "block" : "none";
+    }
+
+    // Skills Filter
+    function filterSkills(category) {
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      filterBtns.forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      const cards = document.querySelectorAll(".skill-card");
+      cards.forEach(card => {
+        const cats = card.getAttribute("data-cat");
+        if (category === "all" || cats.includes(category)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Toast Notification & Clipboard Copy
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const toastMsg = document.getElementById("toastMsg");
+      toastMsg.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    function copyToClipboard(text, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(message || "Copied to clipboard!");
+      });
+    }
+
+    // Contact Form Mailto Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("senderName").value;
+      const email = document.getElementById("senderEmail").value;
+      const msg = document.getElementById("senderMsg").value;
+
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+      const body = encodeURIComponent(`Hi Vedprakash,\n\n${msg}\n\nFrom: ${name} (${email})`);
+      window.location.href = `mailto:vedumeena01@gmail.com?subject=${subject}&body=${body}`;
+
+      showToast("Redirecting to your email client...");
+    }
+  </script>
+
+</body>
+</html>
