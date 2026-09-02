@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedprakash Meena - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --text-main: #000000;
+      --text-muted: #2d3748;
+      --text-gray: #4a5568;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      line-height: 1.25;
+      font-size: 8.8pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Control Bar */
+    .action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .action-bar .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .action-bar .brand span {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-1page {
+      background: #10b981;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 5px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: #f1f5f9;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Resume Container (Strict 1-Page A4 Sheet) */
+    .resume-wrapper {
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .resume-paper {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      background: white;
+      padding: 10mm 15mm 10mm 15mm;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden; /* Guarantees no spillover on screen and print */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .name {
+      font-size: 19pt;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #000;
+      line-height: 1.1;
+      margin-bottom: 1.5px;
+    }
+
+    .location {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .contact-links {
+      font-size: 8.2pt;
+      font-family: 'Source Sans 3', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--text-main);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .contact-item i {
+      font-size: 7.8pt;
+      color: #1e293b;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #000;
+      border-bottom: 0.85px solid #000;
+      padding-bottom: 1px;
+      margin-bottom: 3.5px;
+      letter-spacing: 0.2px;
+      text-transform: none;
+    }
+
+    /* Summary text */
+    .summary-text {
+      font-size: 8.2pt;
+      text-align: justify;
+      color: #111;
+      line-height: 1.25;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    /* Education & Experience Items */
+    .entry-item {
+      margin-bottom: 3.5px;
+    }
+
+    .entry-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0px;
+    }
+
+    .entry-title {
+      font-size: 8.8pt;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .entry-date {
+      font-size: 8.2pt;
+      font-weight: 700;
+      font-family: 'Source Sans 3', sans-serif;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.2pt;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text-muted);
+      margin-bottom: 1px;
+    }
+
+    .entry-subtitle {
+      font-style: italic;
+      color: #1a202c;
+    }
+
+    .entry-location {
+      font-style: italic;
+      color: #4a5568;
+    }
+
+    .tech-stack-line {
+      font-size: 8pt;
+      font-style: italic;
+      color: #374151;
+      margin-bottom: 1.5px;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    /* Bullet lists */
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 11px;
+      margin-top: 1px;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      font-size: 8.15pt;
+      font-family: 'Source Sans 3', sans-serif;
+      color: #0f172a;
+      margin-bottom: 1.5px;
+      text-align: justify;
+      line-height: 1.24;
+    }
+
+    ul.bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: -9px;
+      top: -0.5px;
+      font-size: 9pt;
+      color: #000;
+    }
+
+    ul.bullet-list li strong {
+      font-weight: 700;
+      color: #000;
+    }
+
+    .project-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 2px;
+      font-weight: normal;
+    }
+
+    .project-links a {
+      color: #000;
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+      font-size: 8pt;
+    }
+
+    /* Skills Table/List */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 8.15pt;
+    }
+
+    .skill-row {
+      display: flex;
+      line-height: 1.23;
+    }
+
+    .skill-label {
+      width: 108px;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .skill-values {
+      color: #0f172a;
+      flex: 1;
+    }
+
+    /* Certifications & Achievements */
+    .simple-list {
+      list-style: none;
+      padding-left: 11px;
+    }
+
+    .simple-list li {
+      position: relative;
+      font-size: 8.15pt;
+      font-family: 'Source Sans 3', sans-serif;
+      color: #0f172a;
+      margin-bottom: 1.5px;
+      line-height: 1.24;
+    }
+
+    .simple-list li::before {
+      content: "•";
+      position: absolute;
+      left: -9px;
+      top: -0.5px;
+      font-size: 9pt;
+      color: #000;
+    }
+
+    .simple-list li strong {
+      color: #000;
+    }
+
+    /* Exact 1-Page Print Rule */
+    @media print {
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+      }
+
+      .resume-paper {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        box-shadow: none !important;
+        padding: 8mm 14mm 8mm 14mm !important;
+        border: none !important;
+        overflow: hidden !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0mm !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation / Action Bar -->
+  <div class="action-bar">
+    <div class="brand">
+      <i class="fa-solid fa-file-invoice" style="color: #38bdf8;"></i>
+      <span>Vedprakash Meena</span> — ATS Resume
+      <span class="badge-1page"><i class="fa-solid fa-check"></i> Strict 1-Page A4</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print / Save as PDF
+      </button>
+      <a href="Vedprakash_Meena_Resume.docx" download class="btn btn-secondary">
+        <i class="fa-solid fa-file-word" style="color: #60a5fa;"></i> Word (.docx)
+      </a>
+      <a href="resume.md" class="btn btn-secondary" target="_blank">
+        <i class="fa-solid fa-file-code"></i> Markdown
+      </a>
+      <a href="resume.tex" class="btn btn-secondary" target="_blank">
+        <i class="fa-solid fa-code"></i> LaTeX (.tex)
+      </a>
+      <a href="portfolio.html" class="btn btn-switch" style="background: linear-gradient(135deg, #38bdf8, #818cf8); color: #090d16; font-weight: 700;">
+        <i class="fa-solid fa-globe"></i> Personal Website
+      </a>
+      <a href="resume_outlier_ai.html" class="btn btn-switch" style="background: #7c3aed; color: white;">
+        <i class="fa-solid fa-brain"></i> Outlier AI Specialist
+      </a>
+      <a href="resume_turing_python_docker.html" class="btn btn-switch" style="background: #0284c7; color: white;">
+        <i class="fa-solid fa-server"></i> Turing Python & Docker
+      </a>
+      <a href="resume_fresher.html" class="btn btn-switch" style="background: #8b5cf6; color: white;">
+        <i class="fa-solid fa-graduation-cap"></i> Fresher Version
+      </a>
+      <a href="resume_math_tutor.html" class="btn btn-switch" style="background: #0ea5e9; color: white;">
+        <i class="fa-solid fa-calculator"></i> Math Tutor Version
+      </a>
+      <a href="resume_hindi_reviewer.html" class="btn btn-switch" style="background: #10b981; color: white;">
+        <i class="fa-solid fa-language"></i> Hindi Reviewer Version
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Resume Content -->
+  <div class="resume-wrapper">
+    <div class="resume-paper" id="resumeContent">
+
+      <!-- Header -->
+      <header class="header">
+        <h1 class="name">Vedprakash Meena</h1>
+        <div class="location">Bharatpur, Rajasthan, India</div>
+        <div class="contact-links">
+          <span class="contact-item">
+            <i class="fa-solid fa-phone"></i> +91 7023083405
+          </span>
+          ·
+          <span class="contact-item">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:vedumeena01@gmail.com">vedumeena01@gmail.com</a>
+          </span>
+          ·
+          <span class="contact-item">
+            <i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/vedprakash-meena-58a427309" target="_blank">linkedin.com/in/vedprakash-meena</a>
+          </span>
+          ·
+          <span class="contact-item">
+            <i class="fa-brands fa-github"></i> <a href="https://github.com/vedumeena01" target="_blank">github.com/vedumeena01</a>
+          </span>
+        </div>
+      </header>
+
+      <!-- Professional Summary -->
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Information Technology undergraduate at <strong>IIIT Sonepat</strong> with 5+ months of experience in <strong>AI model evaluation, prompt engineering, and RLHF</strong> at Outlier AI. Proven expertise in designing adversarial evaluation tasks, benchmarking frontier LLMs across coding and reasoning domains, and architecting full-stack web applications (MERN). Skilled in C/C++, Python, React.js, Node.js, and relational databases with strong foundational knowledge in DSA, OOPs, DBMS, Operating Systems, and Computer Networks.
+        </p>
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Indian Institute of Information Technology (IIIT), Sonepat</div>
+            <div class="entry-date">Aug 2023 – Aug 2027</div>
+          </div>
+          <div class="entry-subheader">
+            <div class="entry-subtitle">B.Tech in Information Technology — CGPA: 6.5</div>
+            <div class="entry-location">Sonepat, Haryana</div>
+          </div>
+        </div>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Adarsh Regional Senior Secondary School</div>
+            <div class="entry-date">2022</div>
+          </div>
+          <div class="entry-subheader">
+            <div class="entry-subtitle">RBSE Class XII — 83.0%</div>
+            <div class="entry-location">Nadbai, Bharatpur, Rajasthan</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="section">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Outlier AI — AI Evaluation & Prompt Engineer (Remote)</div>
+            <div class="entry-date">March 2026 – Present</div>
+          </div>
+          <div class="tech-stack-line">
+            Prompt Engineering, LLM Evaluation, RLHF, Adversarial Testing, Python, C++, Code Quality QA
+          </div>
+          <ul class="bullet-list">
+            <li>Designed and executed <strong>adversarial evaluation tasks</strong> and complex prompt frameworks for frontier LLMs to identify reasoning failures, instruction-following breakdowns, and edge-case hallucinations.</li>
+            <li>Conducted rigorous <strong>Reinforcement Learning from Human Feedback (RLHF)</strong>, multi-turn reasoning rubrics, and response ranking across Python, C++, and JavaScript algorithmic benchmarks.</li>
+            <li>Authored comprehensive failure analyses and gold-standard reference code solutions, maintaining a <strong>98%+ task acceptance rate</strong> across enterprise AI quality and evaluation pipelines.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">
+              AI Video-to-Text Multimodal Captioning Pipeline
+            </div>
+            <div class="entry-date">Jan 2026 – March 2026</div>
+          </div>
+          <div class="tech-stack-line">
+            PyTorch, Transformer Decoder, ResNet-152, C3D, Contrastive Loss, Python, CUDA
+          </div>
+          <ul class="bullet-list">
+            <li>Engineered an end-to-end multimodal deep learning pipeline extracting spatiotemporal features from video keyframes to generate coherent natural language descriptions.</li>
+            <li>Built a dual-backbone feature extractor (ResNet-152 spatial + C3D temporal motion) with a cross-modal fusion layer projecting into 512-dim context vectors.</li>
+            <li>Integrated a GPT-style autoregressive Transformer decoder with hybrid Cross-Entropy and Contrastive Loss | <span class="project-links"><i class="fa-brands fa-github"></i> <a href="https://github.com/vedumeena01/video-to-text-captioning" target="_blank">github.com/vedumeena01/video-to-text-captioning</a></span></li>
+          </ul>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">
+              Real-Time AI Biometric Anti-Spoofing Security System
+            </div>
+            <div class="entry-date">Dec 2025 – Jan 2026</div>
+          </div>
+          <div class="tech-stack-line">
+            Python, OpenCV, PyTorch, dlib, Silent-Face Anti-Spoofing, AES-256 Fernet Encryption
+          </div>
+          <ul class="bullet-list">
+            <li>Developed a real-time computer vision security pipeline integrating multi-face detection with deep learning anti-spoofing ensemble to reject replay attacks and masks.</li>
+            <li>Engineered a thread-safe encrypted biometric database utilizing AES-256 Fernet encryption for secure face embedding storage and sub-50ms identification.</li>
+            <li>Optimized multi-threaded frame processing and model inference pipelines, achieving 30+ FPS real-time throughput | <span class="project-links"><i class="fa-brands fa-github"></i> <a href="https://github.com/vedumeena01/ai-face-anti-spoofing" target="_blank">github.com/vedumeena01/ai-face-anti-spoofing</a></span></li>
+          </ul>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">
+              Autonomous Line-Following & Maze-Solving System
+            </div>
+            <div class="entry-date">Jan 2026 – Feb 2026</div>
+          </div>
+          <div class="tech-stack-line">
+            C, C++, Arduino/ESP32, Sensor Fusion, Closed-Loop PID Control, Graph/Maze Algorithms, Git
+          </div>
+          <ul class="bullet-list">
+            <li>Architected an autonomous robotic navigation system utilizing sensor arrays and closed-loop <strong>PID controllers</strong> for high-speed line tracking across complex trajectories.</li>
+            <li>Engineered dynamic <strong>maze-solving algorithms</strong> (Left-Hand Rule & Shortest Path) to detect 90° turns, dead ends, and T-junctions, computing optimal return paths in real-time.</li>
+            <li>Implemented low-level motor driver PWM calibrations and hardware interrupts, reducing response latency by <strong>35%</strong> | <span class="project-links"><i class="fa-brands fa-github"></i> <a href="https://github.com/vedumeena01/line-following-maze-solver" target="_blank">github.com/vedumeena01/line-following-maze-solver</a></span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-label">Languages:</span>
+            <span class="skill-values">C, C++, Java, Python, JavaScript (ES6+), SQL</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">AI & Data:</span>
+            <span class="skill-values">Prompt Engineering, Adversarial LLM Testing, RLHF Evaluation, Data Engineering, Power BI</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Frontend:</span>
+            <span class="skill-values">React.js, HTML5, CSS3, Tailwind CSS, JavaScript, Responsive UI/UX</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Backend & DB:</span>
+            <span class="skill-values">Node.js, Express.js, RESTful APIs, JWT Authentication, MongoDB Atlas, MySQL</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Core Subjects:</span>
+            <span class="skill-values">Data Structures & Algorithms (DSA), OOPs, DBMS, Operating Systems, Computer Networks, TOC</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Developer Tools:</span>
+            <span class="skill-values">Git, GitHub, VS Code, Postman, Linux / Bash</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications & Achievements -->
+      <section class="section">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <ul class="simple-list">
+          <li>
+            <strong>AI - Data Engineering Analyst:</strong> Certified by <strong>NASSCOM / IT-ITeS SSC & Skill India Digital Hub</strong> in AI workflows and data pipelines (Aug 2026).
+          </li>
+          <li>
+            <strong>Mastering Power BI (Data Analysis & Dashboard Creation):</strong> Certified by <strong>PHN Technology & Skill India Digital Hub</strong> (Aug 2026).
+          </li>
+          <li>
+            <strong>Algorithmic Problem Solving:</strong> Solved <strong>200+ Data Structures & Algorithms problems</strong> on platforms including LeetCode and GeeksforGeeks (Arrays, Trees, Graphs, DP).
+          </li>
+          <li>
+            <strong>Hackathons & Competitions:</strong> Active participant in institute-level technical hackathons and coding challenges at IIIT Sonepat.
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>
