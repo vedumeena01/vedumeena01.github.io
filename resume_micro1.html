@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedprakash Meena - Software Developer (micro1) Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --text-main: #000000;
+      --text-muted: #2d3748;
+      --text-gray: #4a5568;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      line-height: 1.22;
+      font-size: 8.5pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Control Bar */
+    .action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .action-bar .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .action-bar .brand span {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-micro1 {
+      background: #f59e0b;
+      color: #090d16;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 5px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #f59e0b;
+      color: #090d16;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: #d97706;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: #f1f5f9;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Resume Container (Strict 1-Page A4 Sheet) */
+    .resume-wrapper {
+      padding: 20px 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .resume-paper {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      background: white;
+      padding: 8mm 14mm 8mm 14mm;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden; /* Strict 1-page fit */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 3px;
+    }
+
+    .name {
+      font-size: 18pt;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #000;
+      line-height: 1.1;
+      margin-bottom: 1.5px;
+    }
+
+    .location {
+      font-size: 8.4pt;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .contact-links {
+      font-size: 8.1pt;
+      font-family: 'Source Sans 3', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--text-main);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .contact-item i {
+      font-size: 7.6pt;
+      color: #1e293b;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 3px;
+    }
+
+    .section-title {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: #000;
+      border-bottom: 0.85px solid #000;
+      padding-bottom: 1px;
+      margin-bottom: 3px;
+      letter-spacing: 0.2px;
+      text-transform: none;
+    }
+
+    /* Summary text */
+    .summary-text {
+      font-size: 8.1pt;
+      text-align: justify;
+      color: #111;
+      line-height: 1.22;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    /* Entry Items */
+    .entry-item {
+      margin-bottom: 3px;
+    }
+
+    .entry-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0px;
+    }
+
+    .entry-title {
+      font-size: 8.6pt;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .entry-date {
+      font-size: 8.0pt;
+      font-weight: 700;
+      font-family: 'Source Sans 3', sans-serif;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .entry-subheader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.0pt;
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text-muted);
+      margin-bottom: 1px;
+    }
+
+    .tech-stack-tag {
+      font-size: 7.8pt;
+      font-style: italic;
+      color: #334155;
+      font-family: 'Source Sans 3', sans-serif;
+      margin-bottom: 1.5px;
+    }
+
+    /* Bullet Lists */
+    ul.bullet-list {
+      list-style-type: disc;
+      margin-left: 14px;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+
+    ul.bullet-list li {
+      font-size: 8.0pt;
+      color: #111;
+      line-height: 1.21;
+      margin-bottom: 1.5px;
+      text-align: justify;
+    }
+
+    ul.bullet-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Skills Grid */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 8.0pt;
+    }
+
+    .skills-table td {
+      padding: 1px 0;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    .skills-category {
+      font-weight: 700;
+      color: #000;
+      width: 25%;
+      white-space: nowrap;
+    }
+
+    .skills-list {
+      color: #111;
+      width: 75%;
+    }
+
+    /* Print Optimization */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: white;
+        font-size: 8.4pt;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-wrapper {
+        padding: 0;
+        margin: 0;
+      }
+
+      .resume-paper {
+        width: 210mm;
+        height: 297mm;
+        max-height: 297mm;
+        box-shadow: none;
+        padding: 8mm 14mm 8mm 14mm;
+        margin: 0;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: #000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Interactive Control Bar -->
+  <div class="action-bar">
+    <div class="brand">
+      <i class="fa-solid fa-code"></i>
+      <span>Vedprakash Meena</span>
+      <span class="badge-micro1">micro1 ($65-$120/hr) Tailored</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print / Save PDF
+      </button>
+      <a href="Vedprakash_Meena_micro1_Resume.docx" class="btn btn-secondary" download>
+        <i class="fa-solid fa-file-word"></i> Word (.docx)
+      </a>
+      <a href="resume_micro1.md" class="btn btn-secondary" target="_blank">
+        <i class="fa-solid fa-file-lines"></i> Markdown (.md)
+      </a>
+      <a href="portfolio.html" class="btn btn-secondary" target="_blank">
+        <i class="fa-solid fa-globe"></i> Live Portfolio
+      </a>
+      <a href="index.html" class="btn btn-secondary">
+        <i class="fa-solid fa-rotate-left"></i> Dashboard
+      </a>
+    </div>
+  </div>
+
+  <div class="resume-wrapper">
+    <main class="resume-paper">
+      
+      <!-- 1. Header Section -->
+      <header class="header">
+        <h1 class="name">Vedprakash Meena</h1>
+        <div class="location">Bharatpur, Rajasthan, India</div>
+        <div class="contact-links">
+          <span class="contact-item">
+            <i class="fa-solid fa-phone"></i> +91 7023083405
+          </span>
+          <span>•</span>
+          <span class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:vedumeena01@gmail.com">vedumeena01@gmail.com</a>
+          </span>
+          <span>•</span>
+          <span class="contact-item">
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://vedumeena01.github.io" target="_blank">vedumeena01.github.io</a>
+          </span>
+          <span>•</span>
+          <span class="contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/vedprakash-meena-58a427309" target="_blank">linkedin.com/in/vedprakash-meena-58a427309</a>
+          </span>
+          <span>•</span>
+          <span class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/vedumeena01" target="_blank">github.com/vedumeena01</a>
+          </span>
+        </div>
+      </header>
+
+      <!-- 2. Professional Summary -->
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Software Developer &amp; AI Systems Engineer with strong expertise in <strong>Python 3.x, C/C++, Data Structures &amp; Algorithms, and Reinforcement Learning Environments</strong>. Proven experience authoring reproducible coding environments, isolated unit test harnesses (PyTest), and golden reference solutions for frontier AI model training and evaluation. Skilled in debugging complex codebases, multi-turn reasoning rubrics, and microservice architectures (FastAPI, Docker). Strong Computer Science foundation from <strong>IIIT Sonepat</strong> (B.Tech IT) with 200+ solved algorithmic problems and NASSCOM AI Data Engineering certification.
+        </p>
+      </section>
+
+      <!-- 3. Technical Skills -->
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <table class="skills-table">
+          <tr>
+            <td class="skills-category">Programming Languages:</td>
+            <td class="skills-list"><strong>Python 3.x, C, C++, Java</strong>, JavaScript (ES6+), SQL, Bash / Shell Scripting</td>
+          </tr>
+          <tr>
+            <td class="skills-category">RL &amp; AI Environments:</td>
+            <td class="skills-list"><strong>Reproducible Benchmark Environments, Golden Reference Solutions, Bug Triage &amp; Injection</strong>, RLHF Evaluation, Multi-Tier Rubrics, Adversarial Testing, Chain-of-Thought (CoT)</td>
+          </tr>
+          <tr>
+            <td class="skills-category">Testing &amp; Code Quality:</td>
+            <td class="skills-list"><strong>PyTest, Unit Testing, Mock Fixtures, AST Analysis, JSON Schema Validation</strong>, Root-Cause Analysis, PEP 8 Compliance</td>
+          </tr>
+          <tr>
+            <td class="skills-category">Backend &amp; DevOps:</td>
+            <td class="skills-list">FastAPI, Flask, Docker, Docker Compose, Isolated Sandboxing, RESTful APIs, Git / GitHub Actions, Linux / POSIX</td>
+          </tr>
+          <tr>
+            <td class="skills-category">Core Computer Science:</td>
+            <td class="skills-list">Data Structures &amp; Algorithms (200+ Solved), Object-Oriented Programming (OOP), DBMS, Operating Systems, Computer Networks</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- 4. Experience -->
+      <section class="section">
+        <h2 class="section-title">Technical Experience</h2>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Outlier AI — AI Evaluation &amp; Software Engineer</div>
+            <div class="entry-date">March 2026 – Present</div>
+          </div>
+          <div class="entry-subheader">
+            <span>Remote Contractor | Frontier AI Data &amp; Reinforcement Learning</span>
+          </div>
+          <div class="tech-stack-tag">Tech Stack: Python, C++, LLM Evaluation, RLHF, PyTest, Adversarial Benchmarks, Rubric Design</div>
+          <ul class="bullet-list">
+            <li>Designed and engineered <strong>reproducible reinforcement learning environments</strong> and multi-turn coding benchmarks to train and evaluate frontier AI models on real-world software tasks.</li>
+            <li>Authored <strong>golden reference code solutions</strong> in Python and C++, accompanied by automated PyTest validation harnesses and deterministic test fixtures.</li>
+            <li>Conducted root-cause analysis on failing model trajectories, identifying subtle logic bugs, runtime regressions, and edge-case hallucinations with a <strong>98%+ task acceptance rate</strong>.</li>
+            <li>Formulated clear technical documentation and multi-tier evaluation rubrics (Correct, Partially Correct, Deficient) to ensure data quality for model fine-tuning.</li>
+          </ul>
+        </div>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Software &amp; Backend Developer — Open Source &amp; Projects</div>
+            <div class="entry-date">Jan 2024 – Present</div>
+          </div>
+          <div class="entry-subheader">
+            <span>Python Backend Architecture &amp; Sandboxed Microservices</span>
+          </div>
+          <div class="tech-stack-tag">Tech Stack: Python, FastAPI, Flask, Docker, Docker Compose, PostgreSQL, Git</div>
+          <ul class="bullet-list">
+            <li>Built containerized backend microservices with structured Pydantic validation, error handling, and end-to-end integration test suites.</li>
+            <li>Engineered reproducible local development sandboxes using Docker Compose, simulating external service dependencies and APIs.</li>
+            <li>Utilized AI coding agents (Claude Code, Cursor) daily for code refactoring, test scaffolding, and performance optimization.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 5. Key Projects -->
+      <section class="section">
+        <h2 class="section-title">Key Projects</h2>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">1. AI Agent RL Environment &amp; Benchmark Platform</div>
+            <div class="entry-date">Jan 2026 – March 2026</div>
+          </div>
+          <div class="tech-stack-tag">Tech Stack: Python, Docker, PyTest, Asyncio, Subprocess Sandboxing, JSON Schema</div>
+          <ul class="bullet-list">
+            <li>Architected an automated evaluation harness that executes autonomous coding agents inside isolated Docker sandbox environments to solve realistic bug-fixing and feature-addition tasks.</li>
+            <li>Authored 25+ real-world engineering problem scenarios with buggy starter code, hidden evaluation test suites, and verified golden solutions.</li>
+            <li>Implemented automated scoring and trajectory logging to assess agent problem-solving steps and code correctness.</li>
+          </ul>
+        </div>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">2. AI Video-to-Text Multimodal Feature Pipeline</div>
+            <div class="entry-date">Jan 2026 – March 2026</div>
+          </div>
+          <div class="tech-stack-tag">Tech Stack: Python, PyTorch, Transformer Decoder, ResNet-152, C3D, CUDA, FastAPI</div>
+          <ul class="bullet-list">
+            <li>Developed an end-to-end multimodal deep learning pipeline extracting spatiotemporal features with PyTorch and exposing inference via an asynchronous FastAPI backend.</li>
+            <li>Dockerized the inference service with multi-worker scaling, containerized health checks, and optimized GPU memory caching for sub-100ms response times.</li>
+          </ul>
+        </div>
+
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">3. Real-Time AI Biometric Anti-Spoofing Security System</div>
+            <div class="entry-date">Dec 2025 – Jan 2026</div>
+          </div>
+          <div class="tech-stack-tag">Tech Stack: Python, OpenCV, PyTorch, dlib, Silent-Face Anti-Spoofing, AES-256 Encryption</div>
+          <ul class="bullet-list">
+            <li>Developed a real-time computer vision security pipeline integrating multi-face detection with a deep neural network anti-spoofing ensemble (97.8% accuracy).</li>
+            <li>Engineered a thread-safe encrypted biometric database utilizing AES-256 Fernet encryption for secure storage and sub-50ms identification.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. Education -->
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Indian Institute of Information Technology (IIIT), Sonepat</div>
+            <div class="entry-date">Aug 2023 – Aug 2027</div>
+          </div>
+          <div class="entry-subheader">
+            <span>Bachelor of Technology (B.Tech) in Information Technology — Sonepat, Haryana</span>
+          </div>
+        </div>
+        <div class="entry-item">
+          <div class="entry-header">
+            <div class="entry-title">Adarsh Regional Senior Secondary School</div>
+            <div class="entry-date">2022</div>
+          </div>
+          <div class="entry-subheader">
+            <span>RBSE Class XII — <strong>83.0%</strong> — Nadbai, Bharatpur, Rajasthan</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Certifications & Achievements -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Certifications &amp; Achievements</h2>
+        <ul class="bullet-list">
+          <li><strong>AI - Data Engineering Analyst:</strong> Certified by <strong>NASSCOM / IT-ITeS SSC &amp; Skill India Digital Hub</strong> in AI data workflows (Aug 2026).</li>
+          <li><strong>Algorithmic Problem Solving:</strong> Solved <strong>200+ DSA Problems</strong> on LeetCode and GeeksforGeeks (Arrays, Trees, Graphs, DP).</li>
+          <li><strong>Golden Reference Author:</strong> Proven ability to write clean, idiomatic, PEP 8-compliant reference code with clear documentation.</li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
