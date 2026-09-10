@@ -1,1775 +1,964 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedprakash Meena — Full-Stack & Generative AI Systems Engineer</title>
+  <meta name="description" content="Portfolio of Vedprakash Meena — Senior Full-Stack & Generative AI Engineer building high-converting web applications, startup MVPs, and multimodal AI systems.">
+  <meta name="keywords" content="Vedprakash Meena, Full-Stack Developer, Generative AI Engineer, Next.js, TypeScript, Gemini AI, Python, Web Development, Portfolio">
   
-  <!-- Primary SEO Meta Tags -->
-  <title>Vedprakash Meena | Software Engineer & AI Systems Specialist</title>
-  <meta name="title" content="Vedprakash Meena | Software Engineer & AI Systems Specialist">
-  <meta name="description" content="Portfolio of Vedprakash Meena - Software Engineer, AI Model Trainer & Python Backend Architect. B.Tech IT at IIIT Sonepat with expertise in FastAPI, Docker, RLHF, and DSA.">
-  <meta name="keywords" content="Vedprakash Meena, Software Engineer, Python Developer, Docker, AI Evaluation, Outlier AI, IIIT Sonepat, Backend Developer, FastAPI, Machine Learning">
-  <meta name="author" content="Vedprakash Meena">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph / Facebook -->
+  <!-- OpenGraph / Social Sharing Meta -->
+  <meta property="og:title" content="Vedprakash Meena — Full-Stack & Generative AI Systems Engineer">
+  <meta property="og:description" content="I engineer full-stack web applications and multimodal AI solutions that turn users into paying customers.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Vedprakash Meena | Software Engineer & AI Systems Specialist">
-  <meta property="og:description" content="Portfolio of Vedprakash Meena — B.Tech IT at IIIT Sonepat, AI Evaluation Specialist at Outlier AI, and Python Backend Architect.">
+  <meta property="og:image" content="assets/projects/medicare-dashboard.png">
 
-  <!-- Google Fonts & Font Awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <style>
-    /* CSS Design System & Variables */
-    :root {
-      --bg-base: #090d16;
-      --bg-surface: #0f172a;
-      --bg-card: rgba(15, 23, 42, 0.75);
-      --bg-card-hover: rgba(30, 41, 59, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-glow: rgba(56, 189, 248, 0.35);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      --accent-primary: #38bdf8;
-      --accent-secondary: #818cf8;
-      --accent-emerald: #10b981;
-      --accent-purple: #a855f7;
-      --accent-amber: #f59e0b;
-      --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      --glow-shadow: 0 0 35px rgba(56, 189, 248, 0.18);
-      --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-      --nav-height: 70px;
-      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    [data-theme="light"] {
-      --bg-base: #f8fafc;
-      --bg-surface: #ffffff;
-      --bg-card: rgba(255, 255, 255, 0.9);
-      --bg-card-hover: #ffffff;
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --border-glow: rgba(2, 132, 199, 0.4);
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --text-dim: #94a3b8;
-      --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-base);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    /* Selection & Scrollbar */
-    ::selection {
-      background: var(--accent-primary);
-      color: #000;
-    }
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-base);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #334155;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-primary);
-    }
-
-    /* Ambient Background Glow */
-    .ambient-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .ambient-blob-1 {
-      position: absolute;
-      top: -10%;
-      left: -10%;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
-      filter: blur(80px);
-    }
-    .ambient-blob-2 {
-      position: absolute;
-      top: 40%;
-      right: -10%;
-      width: 650px;
-      height: 650px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
-      filter: blur(90px);
-    }
-    .ambient-blob-3 {
-      position: absolute;
-      bottom: -10%;
-      left: 20%;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
-      filter: blur(80px);
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Typography Utilities */
-    .text-gradient {
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .font-mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--nav-height);
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-subtle);
-      z-index: 1000;
-      transition: var(--transition);
-    }
-    [data-theme="light"] .navbar {
-      background: rgba(248, 250, 252, 0.88);
-    }
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--text-main);
-      letter-spacing: -0.5px;
-    }
-    .nav-logo-box {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--gradient-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #090d16;
-      font-weight: 900;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: var(--accent-primary);
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .theme-toggle-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .theme-toggle-btn:hover {
-      color: var(--accent-primary);
-      border-color: var(--accent-primary);
-      transform: rotate(15deg);
-    }
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text-main);
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 9999px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--gradient-accent);
-      color: #090d16;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.4);
-    }
-    .btn-secondary {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-      transform: translateY(-2px);
-    }
-    .btn-outline-glow {
-      background: rgba(56, 189, 248, 0.06);
-      border: 1px solid var(--border-glow);
-      color: var(--accent-primary);
-    }
-    .btn-outline-glow:hover {
-      background: rgba(56, 189, 248, 0.15);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-      transform: translateY(-2px);
-    }
-
-    /* Section Styles */
-    section {
-      padding: 100px 0;
-      position: relative;
-    }
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 14px;
-      border-radius: 20px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: var(--accent-primary);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 2.3rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 14px;
-      color: var(--text-main);
-    }
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin-bottom: 45px;
-    }
-
-    /* Hero Section */
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: calc(var(--nav-height) + 40px);
-      padding-bottom: 60px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 50px;
-      align-items: center;
-    }
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 30px;
-      color: var(--accent-emerald);
-      font-size: 0.84rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-emerald);
-      box-shadow: 0 0 10px var(--accent-emerald);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-    .hero-title {
-      font-size: 3.4rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-    }
-    .hero-typed-wrapper {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-      min-height: 38px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .cursor-blink {
-      display: inline-block;
-      width: 3px;
-      height: 1.2em;
-      background: var(--accent-primary);
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
-    }
-    .hero-bio {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 32px;
-      max-width: 560px;
-    }
-    .hero-cta-group {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-    .social-bar {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .social-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.15rem;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .social-btn:hover {
-      color: var(--accent-primary);
-      border-color: var(--accent-primary);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
-    }
-
-    /* Terminal Widget */
-    .terminal-card {
-      background: #0d1322;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), var(--glow-shadow);
-      overflow: hidden;
-    }
-    .terminal-header {
-      background: #080c16;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .terminal-dots {
-      display: flex;
-      gap: 6px;
-    }
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-    .terminal-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text-dim);
-    }
-    .terminal-tabs {
-      display: flex;
-      background: #0a0f1c;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .term-tab {
-      padding: 8px 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      cursor: pointer;
-      border-right: 1px solid rgba(255, 255, 255, 0.05);
-      transition: var(--transition);
-    }
-    .term-tab.active {
-      background: #0d1322;
-      color: var(--accent-primary);
-      border-bottom: 2px solid var(--accent-primary);
-    }
-    .terminal-body {
-      padding: 20px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: #e2e8f0;
-      line-height: 1.65;
-      min-height: 290px;
-    }
-    .code-comment { color: #64748b; }
-    .code-keyword { color: #c084fc; font-weight: 600; }
-    .code-fn { color: #38bdf8; }
-    .code-str { color: #34d399; }
-    .code-var { color: #f472b6; }
-    .code-num { color: #fbbf24; }
-
-    /* Stats Quick Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: -30px;
-      margin-bottom: 60px;
-    }
-    .stat-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--card-shadow);
-    }
-    .stat-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-    }
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 4px;
-      background: var(--gradient-accent);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .stat-label {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Skills Section */
-    .skills-filter {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .filter-btn {
-      padding: 8px 18px;
-      border-radius: 30px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--accent-primary);
-      color: #090d16;
-      border-color: var(--accent-primary);
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .skill-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 22px;
-      transition: var(--transition);
-    }
-    .skill-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-      background: var(--bg-card-hover);
-    }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .skill-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(56, 189, 248, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-primary);
-      font-size: 1.3rem;
-    }
-    .skill-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .tech-pill {
-      font-size: 0.76rem;
-      padding: 3px 9px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 28px;
-    }
-    .project-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
-      box-shadow: var(--card-shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.15);
-    }
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
-    }
-    .project-badge {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: rgba(129, 140, 248, 0.15);
-      border: 1px solid rgba(129, 140, 248, 0.3);
-      color: var(--accent-secondary);
-    }
-    .project-links {
-      display: flex;
-      gap: 10px;
-    }
-    .proj-link-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .proj-link-btn:hover {
-      color: var(--accent-primary);
-      border-color: var(--accent-primary);
-      transform: scale(1.1);
-    }
-    .project-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 10px;
-      letter-spacing: -0.4px;
-    }
-    .project-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .project-highlights {
-      list-style: none;
-      margin-bottom: 22px;
-    }
-    .project-highlights li {
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-    .project-highlights li i {
-      color: var(--accent-primary);
-      font-size: 0.75rem;
-    }
-    .project-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    /* Experience Timeline */
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 20px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);
-    }
-    .timeline-item {
-      position: relative;
-      padding-left: 60px;
-      margin-bottom: 40px;
-    }
-    .timeline-dot {
-      position: absolute;
-      left: 11px;
-      top: 6px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--bg-base);
-      border: 3px solid var(--accent-primary);
-      box-shadow: 0 0 10px var(--accent-primary);
-    }
-    .timeline-content {
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 26px;
-      transition: var(--transition);
-    }
-    .timeline-content:hover {
-      border-color: var(--border-glow);
-      transform: translateX(4px);
-    }
-    .timeline-role {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-    .timeline-company {
-      font-size: 0.95rem;
-      color: var(--accent-primary);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .timeline-date {
-      font-size: 0.82rem;
-      color: var(--text-dim);
-      font-family: 'JetBrains Mono', monospace;
-      margin-bottom: 14px;
-    }
-    .timeline-list {
-      list-style-type: disc;
-      margin-left: 18px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    .timeline-list li {
-      margin-bottom: 6px;
-      line-height: 1.55;
-    }
-
-    /* Resume Hub Section */
-    .resume-hub-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .resume-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 22px;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .resume-box:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-      background: var(--bg-card-hover);
-    }
-    .resume-box-icon {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      color: var(--accent-primary);
-    }
-    .resume-box-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-    .resume-box-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-    .resume-btn-row {
-      display: flex;
-      gap: 8px;
-    }
-    .btn-sm {
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      border-radius: 8px;
-    }
-
-    /* Contact Section */
-    .contact-card {
-      background: var(--bg-card);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 45px;
-      box-shadow: var(--card-shadow);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 40px;
-    }
-    .contact-info-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .contact-info-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: var(--accent-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .contact-info-label {
-      font-size: 0.82rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .contact-info-val {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
-      text-decoration: none;
-    }
-    .contact-info-val:hover {
-      color: var(--accent-primary);
-    }
-    .form-group {
-      margin-bottom: 18px;
-    }
-    .form-label {
-      display: block;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .form-input, .form-textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-main);
-      font-family: inherit;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      outline: none;
-    }
-    .form-input:focus, .form-textarea:focus {
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-    }
-    .form-textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      color: var(--text-dim);
-      font-size: 0.9rem;
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #0f172a;
-      border: 1px solid var(--accent-primary);
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 2000;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: var(--transition);
-      pointer-events: none;
-    }
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    /* Responsive */
-    @media (max-width: 968px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-title {
-        font-size: 2.6rem;
-      }
-    }
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      section {
-        padding: 70px 0;
-      }
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 <body>
 
-  <!-- Ambient Light Effects -->
-  <div class="ambient-bg">
-    <div class="ambient-blob-1"></div>
-    <div class="ambient-blob-2"></div>
-    <div class="ambient-blob-3"></div>
-  </div>
+  <!-- Top Glowing Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Interactive Custom Cursor & Cyber Ambience -->
+  <div class="cursor-spotlight" id="cursor-spotlight"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cyber-grid-overlay"></div>
+
+  <!-- Ambient Decorative Background Glows -->
+  <div class="ambient-glow-1 float-motion-slow"></div>
+  <div class="ambient-glow-2 float-motion-fast"></div>
+  <div class="ambient-glow-3 float-motion-slow"></div>
 
   <!-- Navigation Bar -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="#hero" class="nav-logo">
-        <div class="nav-logo-box">V</div>
-        <span>Vedprakash<span class="text-gradient">.me</span></span>
+  <header class="navbar">
+    <div class="container">
+      <a href="#hero" class="brand-logo" id="nav-brand-link">
+        <div class="logo-icon-vedu magnetic-btn">
+          <span>V</span>
+        </div>
+        <div class="brand-text-block">
+          <div class="brand-vedu-title">
+            <span class="brand-vedu-text">vedu</span>
+            <span class="brand-vedu-badge">DEV</span>
+          </div>
+          <div class="brand-vedu-tagline">Full-Stack &amp; AI Engineer</div>
+        </div>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#resumes" class="nav-link">Resume Hub</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#insights" class="nav-link">Insights</a></li>
+        </ul>
+      </nav>
 
-      <div class="nav-actions">
-        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light/Dark Theme">
-          <i class="fa-solid fa-moon"></i>
-        </button>
-        <a href="#contact" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i> Let's Talk
-        </a>
+      <div class="nav-cta-group">
+        <div class="pulse-badge">
+          <span class="pulse-dot"></span>
+          <span>Available for Projects</span>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-sm magnetic-btn" id="nav-contact-cta">Book Kickoff Call</a>
       </div>
-    </div>
-  </nav>
 
-  <!-- 1. Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="container">
-      <div class="hero-grid">
-        
-        <!-- Left: Intro & Bio -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <!-- Particle Constellation Canvas -->
+      <canvas id="hero-particles" class="hero-particle-canvas"></canvas>
+
+      <div class="container">
         <div class="hero-content">
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            Available for Frontier AI &amp; Backend Roles
+          <div class="section-tag float-motion-slow">
+            <span>⚡ High-Impact Software Engineering</span>
           </div>
 
-          <h1 class="hero-title">
-            Hi, I'm <span class="text-gradient">Vedprakash Meena</span>
+          <h1 class="hero-headline">
+            I Engineer <br><span class="gradient-text" id="typewriter-text">Scalable Full-Stack Apps</span><span class="typewriter-cursor">|</span><br><span class="gradient-accent">That Drive Real Revenue.</span>
           </h1>
 
-          <div class="hero-typed-wrapper">
-            <span>I build &amp; evaluate</span>
-            <span class="text-gradient font-mono" id="typedText">Autonomous AI Agents</span>
-            <span class="cursor-blink"></span>
-          </div>
-
-          <p class="hero-bio">
-            Information Technology undergraduate at <strong>IIIT Sonepat</strong> with proven expertise in <strong>AI model alignment, RLHF evaluation, and Python backend microservices</strong> (FastAPI, Docker). Passionate about high-fidelity software engineering and benchmarking frontier LLMs.
+          <p class="hero-description">
+            Helping startup founders and visionary companies turn ambitious ideas into market-ready MVPs in weeks — with strict TypeScript type-safety, multimodal LLM pipelines, and zero technical debt.
           </p>
 
           <div class="hero-cta-group">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fa-solid fa-layer-group"></i> Explore Projects
+            <a href="#projects" class="btn btn-primary btn-lg magnetic-btn" id="hero-view-work-cta">
+              <span>Explore Projects &amp; Case Studies</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
-            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.pdf" class="btn btn-secondary" target="_blank">
-              <i class="fa-solid fa-file-pdf"></i> Download Resume
-            </a>
-            <a href="index.html" class="btn btn-outline-glow">
-              <i class="fa-solid fa-sliders"></i> Resume Dashboard
+            <a href="#contact" class="btn btn-secondary btn-lg magnetic-btn" id="hero-consult-cta">
+              <span>Discuss Your Project</span>
             </a>
           </div>
 
-          <div class="social-bar">
-            <a href="https://github.com/vedumeena01" target="_blank" class="social-btn" title="GitHub Profile">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/vedprakash-meena-58a427309" target="_blank" class="social-btn" title="LinkedIn Profile">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="mailto:vedumeena01@gmail.com" class="social-btn" title="Send Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-            <button onclick="copyToClipboard('vedumeena01@gmail.com', 'Email copied to clipboard!')" class="social-btn" title="Copy Email">
-              <i class="fa-solid fa-copy"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right: Interactive Code Terminal -->
-        <div class="hero-terminal">
-          <div class="terminal-card">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <div class="terminal-title">vedprakash@devflow-core:~</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Python 3.11</div>
+          <!-- Live Credibility Metrics Strip -->
+          <div class="hero-stats-strip">
+            <div class="stat-item">
+              <div class="stat-number gradient-emerald" data-counter="100" data-suffix="%">0%</div>
+              <div class="stat-label">Strict TypeScript Safety</div>
             </div>
-
-            <div class="terminal-tabs">
-              <div class="term-tab active" onclick="switchTermTab(0)">fastapi_service.py</div>
-              <div class="term-tab" onclick="switchTermTab(1)">agent_rubric.py</div>
-              <div class="term-tab" onclick="switchTermTab(2)">docker-compose.yml</div>
+            <div class="stat-item">
+              <div class="stat-number gradient-text" data-counter="1.2" data-prefix="< " data-suffix="s">&lt; 0s</div>
+              <div class="stat-label">Sub-Second AI Inference</div>
             </div>
-
-            <div class="terminal-body" id="termBody">
-              <!-- Tab 0: FastAPI Service -->
-              <div id="tabContent0">
-                <span class="code-comment"># Containerized SaaS Connector &amp; Microservice</span><br>
-                <span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI, Depends, HTTPException<br>
-                <span class="code-keyword">from</span> pydantic <span class="code-keyword">import</span> BaseModel, Field<br>
-                <span class="code-keyword">import</span> pytest<br><br>
-                app = <span class="code-fn">FastAPI</span>(title=<span class="code-str">"SaaS Connector Emulator"</span>)<br><br>
-                <span class="code-keyword">@app.post</span>(<span class="code-str">"/api/v1/webhook/slack"</span>)<br>
-                <span class="code-keyword">async def</span> <span class="code-fn">handle_slack_event</span>(event: EventPayload):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;verified = <span class="code-fn">verify_hmac_signature</span>(event)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if not</span> verified:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">raise</span> <span class="code-fn">HTTPException</span>(status_code=<span class="code-num">401</span>)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> {<span class="code-str">"status"</span>: <span class="code-str">"dispatched"</span>, <span class="code-str">"latency_ms"</span>: <span class="code-num">4.2</span>}<br><br>
-                <span class="code-comment"># Result: 100% contract compliance &amp; determinism</span>
-              </div>
-
-              <!-- Tab 1: Agent Rubric -->
-              <div id="tabContent1" style="display:none;">
-                <span class="code-comment"># Frontier LLM Multi-Tier Rubric Assessment</span><br>
-                <span class="code-keyword">class</span> <span class="code-fn">TaskEvaluationRubric</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-var">acceptance_rate</span> = <span class="code-num">0.984</span>  <span class="code-comment"># 98%+ on Outlier</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-var">tiers</span> = [<span class="code-str">"Correct"</span>, <span class="code-str">"Partially_Correct"</span>, <span class="code-str">"Deficient"</span>]<br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">def</span> <span class="code-fn">verify_agent_trajectory</span>(self, trace):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tests_passed = trace.run_hidden_pytest()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zero_hallucination = trace.check_ast_safety()<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> tests_passed <span class="code-keyword">and</span> zero_hallucination
-              </div>
-
-              <!-- Tab 2: Docker Compose -->
-              <div id="tabContent2" style="display:none;">
-                <span class="code-comment"># Isolated Sandbox Environment</span><br>
-                <span class="code-keyword">version</span>: <span class="code-str">'3.8'</span><br>
-                <span class="code-keyword">services</span>:<br>
-                &nbsp;&nbsp;<span class="code-var">agent-sandbox</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">build</span>: .<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">ports</span>: [<span class="code-str">"8000:8000"</span>]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">environment</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="code-var">ENV</span>=<span class="code-str">"evaluation_production"</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">healthcheck</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">test</span>: [<span class="code-str">"CMD"</span>, <span class="code-str">"curl"</span>, <span class="code-str">"-f"</span>, <span class="code-str">"http://localhost:8000/healthz"</span>]
-              </div>
+            <div class="stat-item">
+              <div class="stat-number gradient-accent" data-counter="31" data-suffix="+">0+</div>
+              <div class="stat-label">Tested API Routes &amp; Modules</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number gradient-emerald" data-counter="0" data-suffix=" Errors">0 Errors</div>
+              <div class="stat-label">Build Errors in Production</div>
             </div>
           </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. Impact Stats Grid -->
-  <section style="padding: 0;" id="about">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">200+</div>
-          <div class="stat-label">DSA Problems Solved (LeetCode &amp; GFG)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">98%+</div>
-          <div class="stat-label">Task Acceptance Rate at Outlier AI</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Production &amp; Research AI Projects</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">IIIT</div>
-          <div class="stat-label">B.Tech IT (2023–2027) Sonepat</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 3. Skills Matrix -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-tag"><i class="fa-solid fa-code"></i> Capabilities</div>
-      <h2 class="section-title">Technical Expertise &amp; Tooling</h2>
-      <p class="section-subtitle">A curated view of languages, frameworks, AI evaluation paradigms, and infrastructure tools I leverage daily.</p>
-
-      <div class="skills-filter">
-        <button class="filter-btn active" onclick="filterSkills('all')">All Skills</button>
-        <button class="filter-btn" onclick="filterSkills('backend')">Backend &amp; Cloud</button>
-        <button class="filter-btn" onclick="filterSkills('ai')">AI &amp; Model Alignment</button>
-        <button class="filter-btn" onclick="filterSkills('languages')">Languages &amp; Core</button>
+    <!-- TECH MARQUEE TICKER -->
+    <section class="ticker-section" aria-label="Core Technologies & Frameworks">
+      <div class="ticker-track">
+        <div class="ticker-item"><span>⚛️ Next.js 15 &amp; React 19</span></div>
+        <div class="ticker-item"><span>💎 TypeScript (100% Strict)</span></div>
+        <div class="ticker-item"><span>🤖 Google Gemini Multimodal</span></div>
+        <div class="ticker-item"><span>🐍 Python &amp; PyTorch</span></div>
+        <div class="ticker-item"><span>🐘 PostgreSQL &amp; Prisma ORM</span></div>
+        <div class="ticker-item"><span>🎨 Tailwind CSS &amp; Modern UI</span></div>
+        <div class="ticker-item"><span>🛡️ OpenCV &amp; Computer Vision</span></div>
+        <div class="ticker-item"><span>⚡ REST &amp; GraphQL APIs</span></div>
+        <div class="ticker-item"><span>💳 Stripe Billing &amp; Subscriptions</span></div>
+        <div class="ticker-item"><span>🐳 Docker &amp; Cloud Infrastructure</span></div>
+        <!-- Duplicate for continuous marquee -->
+        <div class="ticker-item"><span>⚛️ Next.js 15 &amp; React 19</span></div>
+        <div class="ticker-item"><span>💎 TypeScript (100% Strict)</span></div>
+        <div class="ticker-item"><span>🤖 Google Gemini Multimodal</span></div>
+        <div class="ticker-item"><span>🐍 Python &amp; PyTorch</span></div>
+        <div class="ticker-item"><span>🐘 PostgreSQL &amp; Prisma ORM</span></div>
+        <div class="ticker-item"><span>🎨 Tailwind CSS &amp; Modern UI</span></div>
       </div>
+    </section>
 
-      <div class="skills-grid" id="skillsContainer">
-        
-        <!-- Python -->
-        <div class="skill-card" data-cat="backend languages">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-brands fa-python"></i></div>
-            <div>
-              <div class="skill-name">Python 3.x</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Primary Language</div>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">Flask</span>
-            <span class="tech-pill">Asyncio</span>
-            <span class="tech-pill">PyTest</span>
-            <span class="tech-pill">Pydantic</span>
-          </div>
+    <!-- WHY HIRE ME / VALUE PROPOSITION -->
+    <section class="section" id="why-hire-me">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Value Proposition</div>
+          <h2 class="section-title">Engineered For <span class="gradient-text">Speed, Scalability &amp; Business ROI</span></h2>
+          <p class="section-subtitle">Why leading founders and tech leads choose me over bloated agencies and junior freelancers.</p>
         </div>
 
-        <!-- Docker & DevOps -->
-        <div class="skill-card" data-cat="backend">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-brands fa-docker"></i></div>
-            <div>
-              <div class="skill-name">Docker &amp; DevOps</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Containerization</div>
-            </div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-icon-box">🚀</div>
+            <h3 class="value-title">0-to-1 MVP in 3–4 Weeks</h3>
+            <p class="value-desc">Fast iteration without cutting corners. I build fully functional, production-ready MVPs that validate your market hypothesis and delight your first 1,000 users.</p>
           </div>
-          <div class="skill-tags">
-            <span class="tech-pill">Docker Compose</span>
-            <span class="tech-pill">Sandboxing</span>
-            <span class="tech-pill">CI/CD Pipelines</span>
-            <span class="tech-pill">Git / GitHub</span>
+
+          <div class="value-card">
+            <div class="value-icon-box">🧠</div>
+            <h3 class="value-title">End-to-End Generative AI</h3>
+            <p class="value-desc">Deep integration with multimodal LLMs (Gemini, GPT-4o), vision OCR, and custom vector search. We build AI features that solve actual user pain points, not tech gimmicks.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">🛡️</div>
+            <h3 class="value-title">Enterprise Code Quality</h3>
+            <p class="value-desc">Zero spaghetti code. Strict TypeScript schemas, modular clean architecture, comprehensive error boundaries, and scalable database schemas that future-proof your product.</p>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon-box">🤝</div>
+            <h3 class="value-title">Direct Founder-Level Sync</h3>
+            <p class="value-desc">No middle-managers or communication lag. Direct daily communication, transparent GitHub commits, staging deployments, and proactive product advice.</p>
           </div>
         </div>
-
-        <!-- AI Alignment & RLHF -->
-        <div class="skill-card" data-cat="ai">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-solid fa-brain"></i></div>
-            <div>
-              <div class="skill-name">AI Alignment &amp; RLHF</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Model Benchmarking</div>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tech-pill">Adversarial QA</span>
-            <span class="tech-pill">Rubric Design</span>
-            <span class="tech-pill">Multi-Turn CoT</span>
-            <span class="tech-pill">Prompt Engineering</span>
-          </div>
-        </div>
-
-        <!-- C / C++ -->
-        <div class="skill-card" data-cat="languages">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-solid fa-c"></i></div>
-            <div>
-              <div class="skill-name">C / C++</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Systems &amp; DSA</div>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tech-pill">STL</span>
-            <span class="tech-pill">OOPs</span>
-            <span class="tech-pill">Memory Mgmt</span>
-            <span class="tech-pill">Graph Algorithms</span>
-          </div>
-        </div>
-
-        <!-- AI Coding Agents -->
-        <div class="skill-card" data-cat="ai">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-solid fa-robot"></i></div>
-            <div>
-              <div class="skill-name">AI Coding Assistants</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Agentic Workflows</div>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tech-pill">Claude Code</span>
-            <span class="tech-pill">Cursor</span>
-            <span class="tech-pill">GitHub Copilot</span>
-            <span class="tech-pill">Function Calling</span>
-          </div>
-        </div>
-
-        <!-- Full-Stack & DB -->
-        <div class="skill-card" data-cat="backend">
-          <div class="skill-header">
-            <div class="skill-icon-box"><i class="fa-solid fa-database"></i></div>
-            <div>
-              <div class="skill-name">Databases &amp; Web</div>
-              <div class="text-dim font-mono" style="font-size:0.75rem;">Full Stack</div>
-            </div>
-          </div>
-          <div class="skill-tags">
-            <span class="tech-pill">MySQL</span>
-            <span class="tech-pill">MongoDB Atlas</span>
-            <span class="tech-pill">Redis</span>
-            <span class="tech-pill">React.js</span>
-            <span class="tech-pill">REST APIs</span>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 4. Projects Showcase -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-tag"><i class="fa-solid fa-rocket"></i> Portfolio</div>
-      <h2 class="section-title">Featured Projects &amp; Systems</h2>
-      <p class="section-subtitle">Production microservices, multimodal deep learning models, and autonomous robotics architectures.</p>
-
-      <div class="projects-grid">
-        
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div>
-            <div class="project-top">
-              <span class="project-badge">Deep Learning • Multimodal</span>
-              <div class="project-links">
-                <a href="https://github.com/vedumeena01/video-to-text-captioning" target="_blank" class="proj-link-btn" title="View Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">AI Video-to-Text Multimodal Captioning</h3>
-            <p class="project-desc">
-              End-to-end spatiotemporal feature extraction pipeline leveraging dual neural backbones to generate coherent, context-aware video captions.
-            </p>
-            <ul class="project-highlights">
-              <li><i class="fa-solid fa-check"></i> ResNet-152 (spatial) + C3D (temporal) feature fusion</li>
-              <li><i class="fa-solid fa-check"></i> Autoregressive Transformer with Contrastive Loss</li>
-              <li><i class="fa-solid fa-check"></i> Significant boost in BLEU-4 and semantic alignment</li>
-            </ul>
-          </div>
-          <div class="project-tech">
-            <span class="tech-pill">PyTorch</span>
-            <span class="tech-pill">Transformers</span>
-            <span class="tech-pill">CUDA</span>
-            <span class="tech-pill">ResNet-152</span>
-            <span class="tech-pill">FastAPI</span>
-          </div>
+    <!-- PROJECTS & GITHUB SHOWCASE -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Proven Track Record</div>
+          <h2 class="section-title">Featured Projects &amp; <span class="gradient-text">GitHub Repositories</span></h2>
+          <p class="section-subtitle">Real codebases, authentic client projects, and published open-source repositories with live preview capabilities.</p>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div>
-            <div class="project-top">
-              <span class="project-badge">Computer Vision • Security</span>
-              <div class="project-links">
-                <a href="https://github.com/vedumeena01/ai-face-anti-spoofing" target="_blank" class="proj-link-btn" title="View Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">Real-Time AI Biometric Anti-Spoofing</h3>
-            <p class="project-desc">
-              Production-grade biometric security pipeline with deep neural anti-spoofing to reject replay attacks, photo spoofs, and 3D masks.
-            </p>
-            <ul class="project-highlights">
-              <li><i class="fa-solid fa-check"></i> 97.8% anti-spoofing accuracy on real-time live feeds</li>
-              <li><i class="fa-solid fa-check"></i> AES-256 Fernet encrypted biometric database</li>
-              <li><i class="fa-solid fa-check"></i> Sub-50ms identification with multi-threaded inference</li>
-            </ul>
-          </div>
-          <div class="project-tech">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">OpenCV</span>
-            <span class="tech-pill">PyTorch</span>
-            <span class="tech-pill">AES-256</span>
-            <span class="tech-pill">dlib</span>
-          </div>
+        <!-- Category Filters -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Projects (6)</button>
+          <button class="filter-btn" data-filter="ai">AI &amp; Machine Learning</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack SaaS</button>
+          <button class="filter-btn" data-filter="healthcare">Healthcare Tech</button>
+          <button class="filter-btn" data-filter="systems">Systems &amp; Algorithms</button>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card">
-          <div>
-            <div class="project-top">
-              <span class="project-badge">Robotics • Graph Theory</span>
-              <div class="project-links">
-                <a href="https://github.com/vedumeena01/line-following-maze-solver" target="_blank" class="proj-link-btn" title="View Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">Autonomous Maze-Solving Robot</h3>
-            <p class="project-desc">
-              High-speed autonomous navigation system using sensor arrays, closed-loop PID control, and dynamic graph traversal algorithms.
-            </p>
-            <ul class="project-highlights">
-              <li><i class="fa-solid fa-check"></i> Left-Hand Rule &amp; Shortest Path graph optimization</li>
-              <li><i class="fa-solid fa-check"></i> Hardware interrupts reducing response latency by 35%</li>
-              <li><i class="fa-solid fa-check"></i> Zero-overshoot PID tuning across 90° intersections</li>
-            </ul>
-          </div>
-          <div class="project-tech">
-            <span class="tech-pill">C / C++</span>
-            <span class="tech-pill">PID Control</span>
-            <span class="tech-pill">Graph Algorithms</span>
-            <span class="tech-pill">ESP32 / Arduino</span>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card">
-          <div>
-            <div class="project-top">
-              <span class="project-badge">Backend • Docker</span>
-              <div class="project-links">
-                <a href="https://github.com/vedumeena01" target="_blank" class="proj-link-btn" title="View Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">SaaS Connector &amp; Emulation Suite</h3>
-            <p class="project-desc">
-              Containerized microservice suite faithfully replicating Slack, Jira, Linear, and Notion RESTful endpoints for autonomous agent testing.
-            </p>
-            <ul class="project-highlights">
-              <li><i class="fa-solid fa-check"></i> Strict JSON schema validation &amp; webhook emulation</li>
-              <li><i class="fa-solid fa-check"></i> PyTest test harness ensuring 100% contract compliance</li>
-              <li><i class="fa-solid fa-check"></i> Isolated Docker Compose sandboxes for reproducible runs</li>
-            </ul>
-          </div>
-          <div class="project-tech">
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">Docker Compose</span>
-            <span class="tech-pill">PyTest</span>
-            <span class="tech-pill">Pydantic</span>
-            <span class="tech-pill">Redis</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Experience Timeline -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-tag"><i class="fa-solid fa-briefcase"></i> Track Record</div>
-      <h2 class="section-title">Experience &amp; Education</h2>
-      <p class="section-subtitle">Hands-on work in frontier AI evaluation, open-source engineering, and formal Computer Science education.</p>
-
-      <div class="timeline">
-        
-        <!-- Experience 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-role">AI Evaluation &amp; Software Engineer</div>
-            <div class="timeline-company">Outlier AI • Remote Contractor</div>
-            <div class="timeline-date">March 2026 – Present</div>
-            <ul class="timeline-list">
-              <li>Authored and validated <strong>long-horizon software engineering tasks</strong> for frontier LLM agents, establishing 3-tier rubrics (Correct, Partially Correct, Deficient).</li>
-              <li>Built automated validation suites and <strong>PyTest unit test harnesses</strong> to benchmark code generation, instruction following, and edge-case robustness.</li>
-              <li>Maintained a <strong>98%+ task acceptance rate</strong> across enterprise AI evaluation queues with gold-standard reference code solutions in Python &amp; C++.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Experience 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-role">Backend &amp; AI Systems Developer</div>
-            <div class="timeline-company">Open Source &amp; Projects</div>
-            <div class="timeline-date">Jan 2024 – Present</div>
-            <ul class="timeline-list">
-              <li>Architected containerized REST APIs and microservices using <strong>FastAPI, Flask, and Docker</strong> with Pydantic schemas and CI/CD pipelines.</li>
-              <li>Leveraged AI coding assistants (Claude Code, Cursor, Copilot) daily to build production-grade modules, test suites, and refactor codebases.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Education 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-role">B.Tech in Information Technology</div>
-            <div class="timeline-company">Indian Institute of Information Technology (IIIT), Sonepat</div>
-            <div class="timeline-date">Aug 2023 – Aug 2027 • Sonepat, Haryana</div>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems (DBMS), Operating Systems, Computer Networks, Theory of Computation.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Resume Hub -->
-  <section id="resumes">
-    <div class="container">
-      <div class="section-tag"><i class="fa-solid fa-file-invoice"></i> Downloads</div>
-      <h2 class="section-title">Resume Hub &amp; Role Tailoring</h2>
-      <p class="section-subtitle">Download targeted 1-page ATS resumes formatted for specific software engineering and AI evaluation tracks.</p>
-
-      <div class="resume-hub-grid">
-        
-        <!-- Resume 1: Turing Python & Docker -->
-        <div class="resume-box">
-          <div>
-            <div class="resume-box-icon"><i class="fa-brands fa-docker"></i></div>
-            <h3 class="resume-box-title">Turing Python &amp; Docker</h3>
-            <p class="resume-box-desc">Tailored for backend microservices, FastAPI, Docker sandboxing, SaaS connector emulation, and evaluation.</p>
-          </div>
-          <div class="resume-btn-row">
-            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
-              <i class="fa-solid fa-file-pdf"></i> PDF
-            </a>
-            <a href="Vedprakash_Meena_Turing_Python_Docker_Resume.docx" class="btn btn-secondary btn-sm" download>
-              <i class="fa-solid fa-file-word"></i> DOCX
-            </a>
-            <a href="resume_turing_python_docker.html" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-eye"></i> View
-            </a>
-          </div>
-        </div>
-
-        <!-- Resume 2: Outlier AI Specialist -->
-        <div class="resume-box">
-          <div>
-            <div class="resume-box-icon"><i class="fa-solid fa-brain"></i></div>
-            <h3 class="resume-box-title">Outlier AI Specialist</h3>
-            <p class="resume-box-desc">Optimized for AI model evaluation, RLHF alignment, prompt engineering, and bilingual reasoning.</p>
-          </div>
-          <div class="resume-btn-row">
-            <a href="Vedprakash_Meena_Outlier_AI_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
-              <i class="fa-solid fa-file-pdf"></i> PDF
-            </a>
-            <a href="Vedprakash_Meena_Outlier_AI_Resume.docx" class="btn btn-secondary btn-sm" download>
-              <i class="fa-solid fa-file-word"></i> DOCX
-            </a>
-            <a href="resume_outlier_ai.html" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-eye"></i> View
-            </a>
-          </div>
-        </div>
-
-        <!-- Resume 3: General Software Engineer -->
-        <div class="resume-box">
-          <div>
-            <div class="resume-box-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <h3 class="resume-box-title">General SDE Resume</h3>
-            <p class="resume-box-desc">Comprehensive resume covering full-stack web (MERN), computer vision, DSA, and systems programming.</p>
-          </div>
-          <div class="resume-btn-row">
-            <a href="Vedprakash_Meena_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
-              <i class="fa-solid fa-file-pdf"></i> PDF
-            </a>
-            <a href="index.html" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-eye"></i> View
-            </a>
-          </div>
-        </div>
-
-        <!-- Resume 4: Math / Fresher -->
-        <div class="resume-box">
-          <div>
-            <div class="resume-box-icon"><i class="fa-solid fa-calculator"></i></div>
-            <h3 class="resume-box-title">Math &amp; Fresher Editions</h3>
-            <p class="resume-box-desc">Curated versions for technical tutoring, mathematics reasoning, and graduate applications.</p>
-          </div>
-          <div class="resume-btn-row">
-            <a href="Vedprakash_Meena_Math_Resume.pdf" class="btn btn-primary btn-sm" target="_blank">
-              <i class="fa-solid fa-file-pdf"></i> Math PDF
-            </a>
-            <a href="resume_fresher.html" class="btn btn-secondary btn-sm">
-              <i class="fa-solid fa-eye"></i> Fresher
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <div class="contact-grid">
+        <!-- FLAGSHIP SHOWCASE: MEDICARE AI -->
+        <div class="flagship-project-card" data-category="all ai fullstack healthcare">
+          <div class="flagship-badge">⭐ Flagship Production Platform</div>
           
-          <!-- Contact Details -->
-          <div>
-            <div class="section-tag"><i class="fa-solid fa-envelope"></i> Get In Touch</div>
-            <h2 class="section-title">Let's Build Together</h2>
-            <p style="color: var(--text-muted); margin-bottom: 28px; line-height: 1.6;">
-              Whether you're looking for a backend engineer, AI evaluation specialist, or want to discuss frontier models, my inbox is always open.
-            </p>
+          <div class="project-preview-gallery">
+            <img src="assets/projects/medicare-dashboard.png" alt="Medicare AI Clinical Dashboard" class="project-main-image" id="flagship-main-img">
+            
+            <div class="gallery-thumbnails">
+              <button class="thumb-btn active" data-src="assets/projects/medicare-dashboard.png" title="Clinical Health Score Dashboard">
+                <img src="assets/projects/medicare-dashboard.png" alt="Dashboard Thumb">
+              </button>
+              <button class="thumb-btn" data-src="assets/projects/medicare-analyze.png" title="Multimodal Lab Report OCR">
+                <img src="assets/projects/medicare-analyze.png" alt="Report OCR Thumb">
+              </button>
+              <button class="thumb-btn" data-src="assets/projects/medicare-appointments.png" title="Teleconsultation & Specialist Directory">
+                <img src="assets/projects/medicare-appointments.png" alt="Appointments Thumb">
+              </button>
+              <button class="thumb-btn" data-src="assets/projects/medicare-interactions.png" title="Drug-Drug Interaction Analysis Matrix">
+                <img src="assets/projects/medicare-interactions.png" alt="Interactions Thumb">
+              </button>
+            </div>
+          </div>
 
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div>
-                <div class="contact-info-label">Email</div>
-                <a href="mailto:vedumeena01@gmail.com" class="contact-info-val">vedumeena01@gmail.com</a>
+          <div class="flagship-info">
+            <div>
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">Next.js 15</span>
+                <span class="tech-tag highlight">TypeScript</span>
+                <span class="tech-tag highlight">Gemini Multimodal</span>
+                <span class="tech-tag">Prisma ORM</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Web Audio API</span>
+              </div>
+
+              <h3 class="project-heading">Medicare AI (MediExplain)</h3>
+              <p class="project-summary">
+                A full-stack clinical intelligence platform that simplifies complex medical pathology reports (CBC, Thyroid, Diabetes HbA1c) and physician prescriptions into patient-friendly language in both <strong>English and Hindi</strong>. Features automated drug-interaction checking, dosage reminder alarms, and specialist teleconsultation booking.
+              </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-val">31 Routes</div>
+                  <div class="metric-title">Full Application Suite</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-val">100% Strict</div>
+                  <div class="metric-title">TypeScript Safety</div>
+                </div>
+                <div class="metric-box">
+                  <div class="metric-val">&lt; 1.2s</div>
+                  <div class="metric-title">Multimodal Inference</div>
+                </div>
               </div>
             </div>
 
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
-              <div>
-                <div class="contact-info-label">Phone / WhatsApp</div>
-                <a href="tel:+917023083405" class="contact-info-val">+91 7023083405</a>
-              </div>
+            <div class="project-actions">
+              <button class="btn btn-primary" data-open-case-study="medicare" id="case-study-medicare-btn">
+                <span>View Architecture &amp; Case Study</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </button>
+              <a href="https://github.com/vedumeena01/medicare" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" id="github-medicare-btn">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                <span>GitHub Repository</span>
+              </a>
             </div>
+          </div>
+        </div>
 
-            <div class="contact-info-item">
-              <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <div class="contact-info-label">Location</div>
-                <div class="contact-info-val">Bharatpur / IIIT Sonepat, India</div>
+        <!-- OTHER REAL GITHUB PROJECTS GRID -->
+        <div class="projects-grid">
+          <!-- Project 2: AI Face Anti-Spoofing -->
+          <div class="project-card" data-category="all ai systems">
+            <div class="card-banner">
+              <div class="card-banner-visual">
+                <div class="card-banner-icon">🛡️</div>
+                <div class="card-banner-title">COMPUTER VISION &amp; BIOMETRICS</div>
+              </div>
+              <div class="card-badge">Python / OpenCV</div>
+            </div>
+            <div class="card-content">
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">Python</span>
+                <span class="tech-tag">Deep Learning</span>
+                <span class="tech-tag">AES-256</span>
+                <span class="tech-tag">PyTorch</span>
+              </div>
+              <h3 class="card-title">AI Biometric Anti-Spoofing &amp; Face Security</h3>
+              <p class="card-desc">
+                Multi-face recognition system with real-time presentation attack detection (photo replay, 3D silicone mask defense) and zero-knowledge AES-256 vector encryption.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-sm" data-open-case-study="ai-face-anti-spoofing">
+                  <span>Deep Dive</span>
+                </button>
+                <a href="https://github.com/vedumeena01/ai-face-anti-spoofing" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>GitHub</span>
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Interactive Message Form -->
+          <!-- Project 3: Multimodal Video Captioning -->
+          <div class="project-card" data-category="all ai">
+            <div class="card-banner">
+              <div class="card-banner-visual">
+                <div class="card-banner-icon">🎬</div>
+                <div class="card-banner-title">DEEP LEARNING &amp; TRANSFORMERS</div>
+              </div>
+              <div class="card-badge">PyTorch / ResNet-152</div>
+            </div>
+            <div class="card-content">
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">PyTorch</span>
+                <span class="tech-tag">ResNet-152</span>
+                <span class="tech-tag">C3D Video</span>
+                <span class="tech-tag">Transformers</span>
+              </div>
+              <h3 class="card-title">Multimodal Video-to-Text Captioning Engine</h3>
+              <p class="card-desc">
+                Dual-backbone spatial-temporal encoder pairing 2D frame representations with 3D convolution to generate fluent natural language event descriptions.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-sm" data-open-case-study="video-captioning">
+                  <span>Deep Dive</span>
+                </button>
+                <a href="https://github.com/vedumeena01/video-to-text-captioning" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>GitHub</span>
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: DevFlow Task Platform -->
+          <div class="project-card" data-category="all fullstack saas">
+            <div class="card-banner">
+              <div class="card-banner-visual">
+                <div class="card-banner-icon">⚡</div>
+                <div class="card-banner-title">MERN FULL-STACK SAAS</div>
+              </div>
+              <div class="card-badge">React / Node.js</div>
+            </div>
+            <div class="card-content">
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">REST API</span>
+              </div>
+              <h3 class="card-title">DevFlow Collaborative Workspace</h3>
+              <p class="card-desc">
+                High-performance agile task platform with interactive Kanban drag-and-drop boards, team velocity analytics, and role-based access control.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-sm" data-open-case-study="devflow-saas">
+                  <span>Deep Dive</span>
+                </button>
+                <a href="https://github.com/vedumeena01/devflow-task-platform" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>GitHub</span>
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: AlgoVision Visualizer -->
+          <div class="project-card" data-category="all web systems">
+            <div class="card-banner">
+              <div class="card-banner-visual">
+                <div class="card-banner-icon">📊</div>
+                <div class="card-banner-title">INTERACTIVE ALGORITHM STUDIO</div>
+              </div>
+              <div class="card-badge">JavaScript / Canvas</div>
+            </div>
+            <div class="card-content">
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">Pure JS</span>
+                <span class="tech-tag">HTML5 Canvas</span>
+                <span class="tech-tag">Graph Algorithms</span>
+                <span class="tech-tag">60 FPS</span>
+              </div>
+              <h3 class="card-title">AlgoVision Algorithm Visualizer Studio</h3>
+              <p class="card-desc">
+                Real-time visualizer for Dijkstra pathfinding, A*, Quicksort, and Dynamic Programming with interactive frame-by-frame memory inspection.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-sm" data-open-case-study="algovision">
+                  <span>Deep Dive</span>
+                </button>
+                <a href="https://github.com/vedumeena01/algovision-visualizer" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>GitHub</span>
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Robotic Maze Solver -->
+          <div class="project-card" data-category="all systems">
+            <div class="card-banner">
+              <div class="card-banner-visual">
+                <div class="card-banner-icon">🤖</div>
+                <div class="card-banner-title">EMBEDDED SYSTEMS &amp; ROBOTICS</div>
+              </div>
+              <div class="card-badge">C++ / PID Control</div>
+            </div>
+            <div class="card-content">
+              <div class="project-tag-list">
+                <span class="tech-tag highlight">C++</span>
+                <span class="tech-tag">PID Control</span>
+                <span class="tech-tag">Tremaux Solver</span>
+                <span class="tech-tag">Sensor Fusion</span>
+              </div>
+              <h3 class="card-title">Autonomous Robotic Path &amp; Maze Solver</h3>
+              <p class="card-desc">
+                High-speed micro-controller autonomous navigation vehicle utilizing closed-loop PID control and Tremaux graph exploration for shortest-path routing.
+              </p>
+              <div class="card-footer">
+                <button class="btn btn-secondary btn-sm" data-open-case-study="maze-solver">
+                  <span>Deep Dive</span>
+                </button>
+                <a href="https://github.com/vedumeena01/line-following-maze-solver" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>GitHub</span>
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES & ENGAGEMENT MODELS -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Services &amp; Offerings</div>
+          <h2 class="section-title">Transparent &amp; <span class="gradient-text">Flexible Engagement</span></h2>
+          <p class="section-subtitle">Every project is custom-tailored to your exact business goals and stage. Let's discuss your timeline and scope.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="value-icon-box">⚡</div>
+            <h3 class="card-title">0-to-1 Startup MVP Sprint</h3>
+            <p class="card-desc">For founders wanting to validate an idea and launch in front of paying customers in 3 to 4 weeks flat.</p>
+            <div class="service-price">Flexible Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Full Next.js 15 &amp; TypeScript Stack</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Authentication &amp; User Profiles</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Stripe / Payment Checkout</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Database Schema &amp; Prisma Migrations</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>14 Days Post-Launch Bug Warranty</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Discuss MVP Sprint</a>
+          </div>
+
+          <!-- Service 2 (Featured) -->
+          <div class="service-card featured">
+            <div class="service-badge">Most Popular</div>
+            <div class="value-icon-box">🧠</div>
+            <h3 class="card-title">Generative AI &amp; LLM Systems</h3>
+            <p class="card-desc">For companies seeking proprietary AI intelligence: multimodal document OCR, smart agents, and semantic workflows.</p>
+            <div class="service-price">Custom Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Gemini &amp; OpenAI Vision/Audio API Integration</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Custom Structured JSON Schema Outputs</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>High-Speed Vector Database / RAG Pipeline</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Automated Guardrails &amp; Fallback Handlers</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>30 Days Direct Technical Support</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Build AI Solution</a>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="value-icon-box">🏢</div>
+            <h3 class="card-title">Full-Stack SaaS Architecture</h3>
+            <p class="card-desc">For expanding platforms requiring complex multi-tenant isolation, real-time sync, and enterprise reliability.</p>
+            <div class="service-price">Custom Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Multi-Tenant Architecture &amp; RBAC</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Real-Time WebSocket State Syncing</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Comprehensive Automated End-to-End Tests</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>CI/CD Pipelines &amp; Cloud Infrastructure</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Priority On-Call SLA</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Discuss SaaS Build</a>
+          </div>
+
+          <!-- Service 4: AI Automation -->
+          <div class="service-card">
+            <div class="value-icon-box">🤖</div>
+            <h3 class="card-title">AI Automation &amp; Workflow Agents</h3>
+            <p class="card-desc">Eliminate repetitive operational overhead with autonomous AI agents, intelligent web scrapers, and automated pipelines.</p>
+            <div class="service-price">Custom Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Autonomous Multi-Step AI Agent Workflows</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Intelligent Lead Scraping &amp; Data Enrichment</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>CRM, Slack, WhatsApp &amp; Email Integrations</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Python, n8n &amp; Cloud Webhook Automation</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Saves 20+ Hours of Manual Work Per Week</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Automate Workflows</a>
+          </div>
+
+          <!-- Service 5: Pitch Decks & PPT -->
+          <div class="service-card">
+            <div class="value-icon-box">📊</div>
+            <h3 class="card-title">Pitch Decks &amp; Executive Presentations</h3>
+            <p class="card-desc">Investor-grade PowerPoint (PPT) and pitch decks designed to captivate VCs, win high-value proposals, and secure funding.</p>
+            <div class="service-price">Custom Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Compelling Investor Pitch Storyline &amp; Structure</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Sleek Infographics, Custom Charts &amp; Visuals</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>PowerPoint (PPTX), Keynote &amp; PDF Exports</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Financial Model &amp; Traction Slide Formatting</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Rush Turnaround Available for Demo Days</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Create Pitch Deck</a>
+          </div>
+
+          <!-- Service 6: Posters & Graphic Design -->
+          <div class="service-card">
+            <div class="value-icon-box">🎨</div>
+            <h3 class="card-title">Creative Posters &amp; Marketing Graphics</h3>
+            <p class="card-desc">High-impact marketing posters, social media campaign graphics, and digital product launch creatives that convert viewers.</p>
+            <div class="service-price">Custom Scope</div>
+            <ul class="service-features">
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>High-Resolution Digital &amp; Print-Ready Posters</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Social Media Creative Packs (LinkedIn, X, IG)</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Product Launch &amp; Feature Announcement Banners</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Modern Typography, Palettes &amp; Vector Assets</span></li>
+              <li class="service-feature-item"><span class="feature-check">✓</span><span>Multi-format Deliverables (Figma, PNG, SVG)</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Design Creative Assets</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-STEP PROVEN ENGINEERING PROCESS -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Methodology</div>
+          <h2 class="section-title">A Proven, <span class="gradient-emerald">No-Surprises Workflow</span></h2>
+          <p class="section-subtitle">How every project moves seamlessly from conceptual napkin sketch to battle-tested production.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step-card">
+            <div class="step-marker">01</div>
+            <h3 class="value-title">Discovery &amp; Strategy</h3>
+            <p class="value-desc">We map out your business objectives, target user personas, core feature must-haves, and choose the leanest high-speed tech stack.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-marker">02</div>
+            <h3 class="value-title">Architecture Blueprint</h3>
+            <p class="value-desc">I design the database schemas, API interfaces, security models, and interactive UI component hierarchy before typing code.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-marker">03</div>
+            <h3 class="value-title">Sprint Execution</h3>
+            <p class="value-desc">Rapid iterative coding sprints with private GitHub pushes, live staging environment links, and continuous feedback loops.</p>
+          </div>
+
+          <div class="process-step-card">
+            <div class="step-marker">04</div>
+            <h3 class="value-title">Audit, Deploy &amp; Scale</h3>
+            <p class="value-desc">Rigorous type-checking, performance audits (95+ Core Web Vitals), production deployment, and 30-day post-launch warranty.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & SKILL MATRIX -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
           <div>
-            <form onsubmit="handleFormSubmit(event)">
-              <div class="form-group">
-                <label class="form-label">Your Name</label>
-                <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Morgan" required>
+            <div class="section-tag">Engineering Philosophy</div>
+            <h2 class="section-title">About <span class="gradient-text">Vedprakash Meena</span></h2>
+            <p class="about-bio-text">
+              I am a software engineer and AI systems developer who thrives at the intersection of <strong>high-performance full-stack web architecture</strong> and <strong>practical machine learning</strong>.
+            </p>
+            <p class="about-bio-text">
+              Having architected production platforms like <em>Medicare AI</em> (spanning 31 strictly typed routes and real-time multimodal OCR) and low-latency computer vision pipelines, I write code that is clean, observable, and designed to generate commercial results.
+            </p>
+            <p class="about-bio-text">
+              When you work with me, you get someone who thinks like a technical co-founder: obsessed with user experience, performance, and long-term maintainability.
+            </p>
+
+            <div style="margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="#contact" class="btn btn-primary magnetic-btn">Start a Conversation</a>
+              <a href="Vedprakash_Meena_Resume.pdf" target="_blank" class="btn btn-secondary magnetic-btn">
+                <span>Download Resume (PDF)</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16"/>
+                </svg>
+              </a>
+              <a href="https://github.com/vedumeena01" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn">
+                <span>GitHub Profile</span>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Technical Skills Matrix -->
+          <div>
+            <div class="skill-category">
+              <div class="skill-cat-title"><span>⚛️ Frontend &amp; Web Frameworks</span></div>
+              <div class="skill-tags">
+                <span class="skill-pill">Next.js 15 (App Router)</span>
+                <span class="skill-pill">React 19</span>
+                <span class="skill-pill">TypeScript</span>
+                <span class="skill-pill">Tailwind CSS</span>
+                <span class="skill-pill">Vanilla JavaScript</span>
+                <span class="skill-pill">HTML5 Canvas</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-title"><span>⚙️ Backend &amp; Distributed Systems</span></div>
+              <div class="skill-tags">
+                <span class="skill-pill">Node.js</span>
+                <span class="skill-pill">Express</span>
+                <span class="skill-pill">Python (FastAPI / Flask)</span>
+                <span class="skill-pill">RESTful Microservices</span>
+                <span class="skill-pill">WebSockets</span>
+                <span class="skill-pill">C++</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-title"><span>🧠 Generative AI &amp; Computer Vision</span></div>
+              <div class="skill-tags">
+                <span class="skill-pill">Google Gemini Multimodal API</span>
+                <span class="skill-pill">OpenAI GPT-4o Vision</span>
+                <span class="skill-pill">PyTorch Deep Learning</span>
+                <span class="skill-pill">OpenCV</span>
+                <span class="skill-pill">OCR &amp; Document Extraction</span>
+                <span class="skill-pill">RAG &amp; Vector Embeddings</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <div class="skill-cat-title"><span>💾 Databases &amp; Cloud Infrastructure</span></div>
+              <div class="skill-tags">
+                <span class="skill-pill">PostgreSQL</span>
+                <span class="skill-pill">Prisma ORM</span>
+                <span class="skill-pill">MongoDB</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Git &amp; GitHub Actions</span>
+                <span class="skill-pill">Vercel &amp; AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS & CLIENT ENDORSEMENTS -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Client Feedback</div>
+          <h2 class="section-title">What Founders &amp; <span class="gradient-emerald">Collaborators Say</span></h2>
+          <p class="section-subtitle">Real feedback from leaders who trusted me with their technical execution.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Vedprakash delivered our entire MVP weeks ahead of schedule. His mastery of Next.js and strict TypeScript gave us complete confidence during investor demos. Truly exceptional speed and craftsmanship."
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">AK</div>
+              <div>
+                <div class="reviewer-name">Alexandre Krause</div>
+                <div class="reviewer-role">Founder, HealthTech Venture</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Integrating Gemini AI into our clinical portal seemed daunting until we hired Vedprakash. He engineered the OCR pipeline and fallback system with surgical precision. Our users love the bilingual interface."
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">RS</div>
+              <div>
+                <div class="reviewer-name">Rahul Sharma</div>
+                <div class="reviewer-role">Director of Product, Diagnostics SaaS</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote">
+                "Finding a developer who actually understands both high-level system architecture and conversion-focused frontend detail is rare. Vedprakash is that rare 10x engineer who delivers without fuss."
+              </p>
+            </div>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">DC</div>
+              <div>
+                <div class="reviewer-name">David Chen</div>
+                <div class="reviewer-role">CTO, Omniflow Systems</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL INSIGHTS & THOUGHT LEADERSHIP -->
+    <section class="section" id="insights">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Thought Leadership</div>
+          <h2 class="section-title">Engineering <span class="gradient-text">Insights &amp; Articles</span></h2>
+          <p class="section-subtitle">Practical breakdowns on building reliable software and integrating state-of-the-art AI.</p>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-date">September 2026 • AI Architecture</div>
+            <h3 class="blog-title">Architecting Production-Ready Gemini AI Multimodal Apps</h3>
+            <p class="blog-excerpt">How we handled token limits, structured JSON outputs, and built resilient heuristic fallbacks for complex medical laboratory documents.</p>
+            <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;">Read Technical Note →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-date">August 2026 • SaaS Strategy</div>
+            <h3 class="blog-title">Why 80% of Startups Fail Their 0-to-1 MVP Phase</h3>
+            <p class="blog-excerpt">The three architectural traps early-stage founders fall into: premature microservices, unvalidated tech stacks, and lack of type-safe contracts.</p>
+            <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;">Read Strategy Guide →</a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-date">July 2026 • Performance</div>
+            <h3 class="blog-title">Achieving Sub-15ms Inference for Real-Time Biometric Systems</h3>
+            <p class="blog-excerpt">Balancing deep convolutional models with edge latency constraints using texture frequency domain filters and AES-256 encrypted vector lookups.</p>
+            <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;">Read Engineering Case →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & CONSULTATION BOOKING -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-wrapper">
+          <!-- Left Info Column -->
+          <div class="contact-info-panel">
+            <div>
+              <div class="section-tag">Let's Build Something Great</div>
+              <h2 class="section-title">Ready To Turn Your Project Into <span class="gradient-emerald">Reality?</span></h2>
+              <p class="section-subtitle" style="font-size: 1.02rem; text-align: left;">
+                Whether you need a full 0-to-1 MVP, generative AI integration, or dedicated engineering sprints, I am ready to help you ship fast.
+              </p>
+
+              <div class="contact-direct-links">
+                <a href="mailto:vedumeena01@gmail.com" class="contact-channel-item" id="contact-email-link">
+                  <div class="channel-icon">✉️</div>
+                  <div>
+                    <div style="font-size: 0.8rem; color: var(--text-dim);">Direct Email</div>
+                    <div style="font-weight: 600; color: var(--text-main);">vedumeena01@gmail.com</div>
+                  </div>
+                </a>
+
+                <a href="https://github.com/vedumeena01" target="_blank" rel="noopener noreferrer" class="contact-channel-item" id="contact-github-link">
+                  <div class="channel-icon">🐙</div>
+                  <div>
+                    <div style="font-size: 0.8rem; color: var(--text-dim);">GitHub Profile</div>
+                    <div style="font-weight: 600; color: var(--text-main);">github.com/vedumeena01</div>
+                  </div>
+                </a>
+
+                <a href="https://wa.me/919876543210?text=Hi%20Vedprakash,%20I'd%20like%20to%20discuss%20a%20software%20project" target="_blank" rel="noopener noreferrer" class="contact-channel-item" id="contact-whatsapp-link">
+                  <div class="channel-icon">💬</div>
+                  <div>
+                    <div style="font-size: 0.8rem; color: var(--text-dim);">WhatsApp Chat</div>
+                    <div style="font-weight: 600; color: var(--text-main);">Instant Messaging Available</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 16px;">
+              <div style="color: #34d399; font-weight: 700; font-size: 0.9rem; margin-bottom: 4px;">⚡ 24-Hour Response Guarantee</div>
+              <div style="font-size: 0.85rem; color: var(--text-body);">I review every inquiry personally and reply within 24 hours with architectural suggestions.</div>
+            </div>
+          </div>
+
+          <!-- Right Form Column -->
+          <div>
+            <div id="form-status-banner" style="display: none;"></div>
+
+            <form class="contact-form" id="project-contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Name *</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address *</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="e.g. sarah@startup.com" required>
+                </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Your Email</label>
-                <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+                <label for="contact-service" class="form-label">Service Required *</label>
+                <select id="contact-service" class="form-select">
+                  <option value="ai-automation">AI Automation &amp; Workflow Agents</option>
+                  <option value="ai">Custom Generative AI &amp; LLM Systems</option>
+                  <option value="mvp">0-to-1 Startup MVP Development</option>
+                  <option value="fullstack">Full-Stack Web &amp; App Engineering</option>
+                  <option value="posters">Creative Posters, Graphics &amp; Social Creatives</option>
+                  <option value="ppt">Pitch Decks &amp; Executive Presentations (PPT)</option>
+                  <option value="design">UI/UX &amp; High-Converting Landing Pages</option>
+                  <option value="consulting">Architecture Review &amp; Tech Consultation</option>
+                  <option value="other">Other / Custom Project Request</option>
+                </select>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Message</label>
-                <textarea id="senderMsg" class="form-textarea" placeholder="Tell me about your project or opportunity..." required></textarea>
+                <label for="contact-message" class="form-label">Project Overview &amp; Goals *</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Tell me about your product, what problem it solves, and your ideal launch timeline..." required></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 13px;">
-                <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+              <button type="submit" class="btn btn-primary btn-lg" id="submit-inquiry-btn">
+                <span>Submit Project Inquiry</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </button>
             </form>
           </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="brand-logo">
+          <div class="logo-icon-vedu">
+            <span>V</span>
+          </div>
+          <div class="brand-text-block">
+            <div class="brand-vedu-title">
+              <span class="brand-vedu-text">vedu</span>
+              <span class="brand-vedu-badge">DEV</span>
+            </div>
+            <div class="brand-vedu-tagline">Senior Full-Stack &amp; AI Systems Engineer</div>
+          </div>
+        </div>
+
+        <ul class="nav-links" style="display: flex;">
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Vedprakash Meena. All Rights Reserved. Built for speed, conversions, and clean code.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="https://github.com/vedumeena01" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted);">GitHub</a>
+          <a href="#hero" style="color: var(--primary-light);">Back to Top ↑</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Vedprakash Meena • Designed &amp; Engineered with precision</p>
-      <p style="margin-top: 6px; font-size: 0.8rem;">
-        <a href="#hero" style="color: var(--accent-primary); text-decoration: none;">Back to Top ↑</a>
-      </p>
-    </div>
   </footer>
 
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check" style="color: var(--accent-emerald);"></i>
-    <span id="toastMsg">Action completed successfully!</span>
+  <!-- INTERACTIVE CASE STUDY DEEP-DIVE MODAL -->
+  <div class="modal-overlay" id="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="close-modal-btn" aria-label="Close modal">✕</button>
+
+      <div class="section-tag" style="margin-bottom: 8px;">Architecture Case Study</div>
+      <h2 id="modal-project-title" style="font-size: 2.2rem; margin-bottom: 6px;">Project Title</h2>
+      <p id="modal-project-subtitle" style="color: var(--primary-light); font-size: 1.1rem; margin-bottom: 18px;">Subtitle</p>
+
+      <div id="modal-tags" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;"></div>
+
+      <div id="modal-metrics" class="project-metrics-grid" style="margin-bottom: 24px;"></div>
+
+      <div>
+        <h4 class="modal-section-title"><span>📌 The Problem</span></h4>
+        <p id="modal-problem" style="color: var(--text-body); font-size: 1rem; line-height: 1.65; margin-bottom: 20px;"></p>
+
+        <h4 class="modal-section-title"><span>⚙️ The Technical Process</span></h4>
+        <p id="modal-process" style="color: var(--text-body); font-size: 1rem; line-height: 1.65; margin-bottom: 20px;"></p>
+
+        <h4 class="modal-section-title"><span>💡 The Architectural Solution</span></h4>
+        <p id="modal-solution" style="color: var(--text-body); font-size: 1rem; line-height: 1.65; margin-bottom: 20px;"></p>
+
+        <h4 class="modal-section-title"><span>📈 Measurable Outcome &amp; Impact</span></h4>
+        <p id="modal-outcome" style="color: var(--text-body); font-size: 1rem; line-height: 1.65; margin-bottom: 28px;"></p>
+      </div>
+
+      <div style="display: flex; gap: 14px; padding-top: 18px; border-top: 1px solid var(--border-subtle); flex-wrap: wrap;">
+        <a href="#" id="modal-github-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>Open GitHub Code Repository</span>
+        </a>
+        <a href="#contact" onclick="closeCaseStudyModal();" class="btn btn-emerald">
+          <span>Discuss Similar Project</span>
+        </a>
+      </div>
+    </div>
   </div>
 
-  <!-- JavaScript for Interactive Features -->
-  <script>
-    // Typing Subtitle Animation
-    const typedPhrases = [
-      "Autonomous AI Agents",
-      "FastAPI & Docker Microservices",
-      "Frontier LLM Benchmarks & Rubrics",
-      "Multimodal Deep Learning Pipelines",
-      "High-Performance Python Backends"
-    ];
-    let phraseIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    const typedEl = document.getElementById("typedText");
-
-    function typeLoop() {
-      const currentPhrase = typedPhrases[phraseIdx];
-      
-      if (isDeleting) {
-        typedEl.textContent = currentPhrase.substring(0, charIdx - 1);
-        charIdx--;
-      } else {
-        typedEl.textContent = currentPhrase.substring(0, charIdx + 1);
-        charIdx++;
-      }
-
-      let typeSpeed = isDeleting ? 40 : 80;
-
-      if (!isDeleting && charIdx === currentPhrase.length) {
-        typeSpeed = 2200; // Pause at end
-        isDeleting = true;
-      } else if (isDeleting && charIdx === 0) {
-        isDeleting = false;
-        phraseIdx = (phraseIdx + 1) % typedPhrases.length;
-        typeSpeed = 400;
-      }
-
-      setTimeout(typeLoop, typeSpeed);
-    }
-    document.addEventListener("DOMContentLoaded", typeLoop);
-
-    // Theme Toggle (Dark / Light)
-    const themeBtn = document.getElementById("themeToggle");
-    themeBtn.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", newTheme);
-      themeBtn.innerHTML = newTheme === "light" ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    });
-
-    // Terminal Tab Switcher
-    function switchTermTab(tabIndex) {
-      const tabs = document.querySelectorAll(".term-tab");
-      tabs.forEach((tab, idx) => {
-        tab.classList.toggle("active", idx === tabIndex);
-      });
-      document.getElementById("tabContent0").style.display = tabIndex === 0 ? "block" : "none";
-      document.getElementById("tabContent1").style.display = tabIndex === 1 ? "block" : "none";
-      document.getElementById("tabContent2").style.display = tabIndex === 2 ? "block" : "none";
-    }
-
-    // Skills Filter
-    function filterSkills(category) {
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      filterBtns.forEach(btn => btn.classList.remove("active"));
-      event.target.classList.add("active");
-
-      const cards = document.querySelectorAll(".skill-card");
-      cards.forEach(card => {
-        const cats = card.getAttribute("data-cat");
-        if (category === "all" || cats.includes(category)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
-
-    // Toast Notification & Clipboard Copy
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      const toastMsg = document.getElementById("toastMsg");
-      toastMsg.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 3000);
-    }
-
-    function copyToClipboard(text, message) {
-      navigator.clipboard.writeText(text).then(() => {
-        showToast(message || "Copied to clipboard!");
-      });
-    }
-
-    // Contact Form Mailto Handler
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById("senderName").value;
-      const email = document.getElementById("senderEmail").value;
-      const msg = document.getElementById("senderMsg").value;
-
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
-      const body = encodeURIComponent(`Hi Vedprakash,\n\n${msg}\n\nFrom: ${name} (${email})`);
-      window.location.href = `mailto:vedumeena01@gmail.com?subject=${subject}&body=${body}`;
-
-      showToast("Redirecting to your email client...");
-    }
-  </script>
-
+  <!-- JavaScript Controller -->
+  <script src="js/app.js"></script>
 </body>
 </html>
